@@ -156,3 +156,161 @@ For each factor, assess and rate 1-5:
 - Hidden features
 - Inconsistent interactions
 - Unclear labels
+- Complex processes
+
+---
+
+#### 3. Findable ⭐⭐⚪⚪⚪ (2/5)
+
+**Question**: Can users easily locate content and features?
+
+**Evaluate:**
+- Effective search functionality
+- Logical information architecture
+- Clear content hierarchy
+- Good labeling and categorization
+- Discoverable features
+
+**Test:**
+- Can users find [key feature] in <30 seconds?
+- Is search effective?
+- Are related items grouped logically?
+
+---
+
+#### 4. Credible ⭐⭐⭐⭐⚪ (4/5)
+
+**Question**: Does it inspire trust and confidence?
+
+**Evaluate:**
+- Professional visual design
+- No broken links or errors
+- Secure (HTTPS, privacy policy)
+- Transparent about data usage
+- Social proof (reviews, testimonials)
+- Up-to-date content
+- Clear contact information
+
+**Trust Signals:**
+- Security badges
+- Professional design
+- Error-free content
+- Real testimonials
+- Privacy transparency
+
+---
+
+#### 5. Desirable ⭐⭐⭐⚪⚪ (3/5)
+
+**Question**: Is it aesthetically appealing and emotionally engaging?
+
+**Evaluate:**
+- Visual appeal (beautiful, polished)
+- Emotional design (delightful, memorable)
+- Brand personality expression
+- Modern design standards
+- Creates positive emotional response
+
+**Beyond Functional:**
+- Does it spark joy?
+- Is it memorable?
+- Do users want to use it?
+- Competitive visual design?
+
+---
+
+#### 6. Accessible ⭐⭐⚪⚪⚪ (2/5)
+
+**Question**: Is it inclusive for all users, including those with disabilities?
+
+**Evaluate:**
+- WCAG compliance (A, AA, AAA)
+- Keyboard navigation
+- Screen reader compatibility
+- Color contrast
+- Alternative text
+- Captions for media
+- Flexible text sizing
+
+**Quick Checks:**
+- Can you navigate with keyboard only?
+- Does it work with screen readers?
+- Sufficient color contrast?
+- Text resizable to 200%?
+
+---
+
+#### 7. Valuable ⭐⭐⭐⭐⚪ (4/5)
+
+**Question**: Does it deliver value to both users and the business?
+
+**Evaluate:**
+- **User Value**: Saves time, money, effort; provides utility or enjoyment
+- **Business Value**: Achieves business goals (revenue, engagement, retention)
+- ROI for both stakeholders
+
+**Balance:**
+- User needs vs. business goals
+- Short-term vs. long-term value
+- Monetization without compromising UX
+
+---
+
+**7 Factors Summary:**
+
+| Factor | Rating | Status | Priority |
+|--------|--------|--------|----------|
+| Useful | 4/5 | ✅ Good | Medium |
+| Usable | 3/5 | ⚠️ Needs work | High |
+| Findable | 2/5 | ❌ Poor | Critical |
+| Credible | 4/5 | ✅ Good | Low |
+| Desirable | 3/5 | ⚠️ Needs work | Medium |
+| Accessible | 2/5 | ❌ Poor | High |
+| Valuable | 4/5 | ✅ Good | Low |
+
+**Overall UX Factor Score**: 22/35 (63%) - **Acceptable, significant improvement needed**
+
+---
+
+### Step 3: Assess 5 Usability Characteristics (30 minutes)
+
+#### 1. Effectiveness ⭐⭐⭐⭐⚪ (4/5)
+
+**Definition**: Can users achieve their goals accurately and completely?
+
+**Evaluate:**
+- Task completion rate (target: >90%)
+- Accuracy of results
+- Success rate for key tasks
+- Goal achievement without workarounds
+
+**Metrics:**
+- % of users who complete tasks successfully
+- Number of errors per task
+- Satisfaction with outcomes
+
+**Issues Found:**
+- [List specific effectiveness problems]
+
+---
+
+#### 2. Efficiency ⭐⭐⭐⚪⚪ (3/5)
+
+**Definition**: Can users complete tasks quickly with minimal effort?
+
+**Evaluate:**
+- Time to complete tasks (vs. benchmark)
+- Number of steps/clicks required
+- Shortcuts for expert users
+- Streamlined workflows
+- No unnecessary friction
+
+**Metrics:**
+- Average time on task
+- Number of clicks/steps
+- Perceived effort (user reports)
+
+**Efficiency Issues:**
+- Multi-step processes that could be simplified
+- Missing shortcuts or bulk actions
+- Slow loading times
