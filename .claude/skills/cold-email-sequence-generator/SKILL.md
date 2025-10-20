@@ -138,3 +138,143 @@ Quick question about [their company]'s [specific challenge]
 
 ---
 
+### Email Body
+
+```
+Hi [First Name],
+
+I noticed [specific observation about their company/role/recent activity] and thought you might be facing [specific challenge common to their situation].
+
+We've helped [similar company 1] and [similar company 2] [achieve specific outcome] without [common objection/pain point].
+
+Worth a quick 15-minute conversation to see if we can do the same for [their company]?
+
+Best,
+[Your Name]
+[Your Title]
+[Company]
+
+P.S. - [Personalized one-liner based on research - optional but powerful]
+```
+
+---
+
+### Variables to Customize
+
+| Variable | Example | How to Find |
+|----------|---------|-------------|
+| `[specific observation]` | "you're expanding to 3 new regions" | LinkedIn, company news, press releases |
+| `[specific challenge]` | "managing distributed team security" | Job postings, industry reports, LinkedIn posts |
+| `[similar company 1]` | "Acme Corp (Series B, 50 employees)" | Your customer list, same industry/stage |
+| `[achieve specific outcome]` | "reduce onboarding time by 60%" | Your case studies with metrics |
+| `[common objection]` | "expensive consultants or long implementations" | Common buying objections in sales calls |
+
+---
+
+### Personalization Examples
+
+**SaaS Company**:
+> Hi Sarah,
+>
+> I saw Acme Software raised a Series B last month (congrats!) and is hiring 15 sales reps according to LinkedIn. That kind of growth usually creates onboarding bottlenecks.
+>
+> We helped ChartMogul and Segment cut new rep ramp time by 40% without adding headcount to training teams.
+>
+> Worth a quick call to see if we could help Acme do the same?
+
+**Enterprise**:
+> Hi John,
+>
+> Noticed your team at GlobalTech recently posted 8 cloud security engineer roles. When my previous clients scaled that fast, credential management became a nightmare.
+>
+> We've helped Fortune 500 IT teams like yours at Cisco and IBM automate access controls—cutting security incidents by 75%.
+>
+> 15 minutes to discuss your approach?
+
+---
+
+## 📨 Email #2: The Value Proof
+
+**Send**: Day 2 at 11:00 AM
+**Goal**: Establish credibility with concrete evidence
+**Subject**: "How [Similar Company] achieved [specific result]"
+
+### Email Body
+
+```
+[First Name],
+
+Following up on my email from [day of week]—wanted to share a quick example of how this worked for a company like [their company].
+
+[Similar Company Name] was [specific situation similar to prospect's]. In just [timeframe], they:
+
+✓ [Specific result #1 with metric]
+✓ [Specific result #2 with metric]
+✓ [Specific result #3 with metric]
+
+The best part? They got started in under [timeframe] without [common objection].
+
+[Link to case study] if you want details.
+
+Happy to walk through how we might replicate this for [their company]—would [Day] at [Time] or [alternate time] work for 15 minutes?
+
+[Your Name]
+```
+
+---
+
+### Social Proof Options
+
+**Case Study Format**:
+```
+Intercom was struggling with [problem]. Using [your solution], they [action taken] and achieved [result] in [timeframe].
+```
+
+**Stats Format**:
+```
+Teams using [your solution] typically see:
+• [X%] increase in [metric]
+• [X%] decrease in [problem]
+• [X hour/day/week] saved on [task]
+```
+
+**Name-Drop Format**:
+```
+Companies like Stripe, Notion, and Figma use [solution] for [use case]—they've seen [common result].
+```
+
+---
+
+## 📨 Email #3: The Different Angle
+
+**Send**: Day 4 at 2:00 PM
+**Goal**: Address alternative pain point they may care more about
+**Subject**: "Different thought about [their company]"
+
+### Email Body
+
+```
+Hi [First Name],
+
+I realize [original pain point from Email 1] might not be top of mind right now.
+
+But what about [alternative pain point]?
+
+Most [their role/title]s we talk to say [common complaint], which is why [mini value prop related to this pain point].
+
+Just a thought—but if this hits closer to home, happy to share how [quick win].
+
+[Your Name]
+
+P.S. - If neither of these are relevant, just let me know and I'll stop bothering you!
+```
+
+---
+
+### Alternative Angle Ideas
+
+| Original Angle | Alternative Angle |
+|----------------|-------------------|
+| Save money | Save time |
+| Increase efficiency | Reduce risk |
+| Scale faster | Improve quality |
