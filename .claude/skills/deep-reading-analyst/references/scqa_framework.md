@@ -123,3 +123,128 @@ Implicit questions:
 - Questions author wants to answer but doesn't explicitly state
 
 Question types:
+1. Decision question: Should we do A or B?
+2. Method question: How to achieve X?
+3. Cause question: Why does Y happen?
+4. Prediction question: What will happen?
+```
+
+#### Quality Question Characteristics
+- ✅ Directly stems from Complication
+- ✅ Specific and answerable
+- ✅ Valuable to readers
+- ✅ Sets scope for Answer
+
+#### Example
+```markdown
+**Question**:
+"How should companies successfully transition to long-term remote work
+while maintaining productivity?"
+
+Analysis:
+- ✅ Directly addresses C's problems
+- ✅ Specific and actionable
+- ✅ Sets scope (remote work)
+```
+
+### A - Answer (Solution)
+
+**Definition**: The solution or conclusion addressing the Question
+
+#### Identification Method
+```markdown
+## Identifying Answer
+
+Look for:
+- Article's core recommendations
+- Proposed solutions
+- Derived conclusions
+- Action plans
+
+Structure types:
+1. Single solution: "The answer is X"
+2. Multiple steps: "Need to do A, B, C"
+3. Framework tool: "Use Y framework"
+4. Guiding principles: "Follow Z principles"
+```
+
+#### Quality Answer Characteristics
+- ✅ Directly answers Question
+- ✅ Actionable or understandable
+- ✅ Logically supported
+- ✅ Considers implementation feasibility
+
+#### Example
+```markdown
+**Answer**:
+"Successful transition requires four key steps:
+1. Establish clear remote work policies and expectations
+2. Invest in collaboration tech and security infrastructure
+3. Train managers in asynchronous management
+4. Create virtual social and culture-building mechanisms"
+
+Analysis:
+- ✅ Addresses Q's core need
+- ✅ Structured and executable
+- ✅ Covers multiple C problems
+```
+
+## Application Methods
+
+### Method 1: Deconstruction Analysis (Understanding Articles)
+
+```markdown
+# SCQA Deconstruction: [Article Title]
+
+## S - Situation
+[Extract and summarize article's background setup]
+- Key fact 1
+- Key fact 2
+- Key fact 3
+
+## C - Complication
+[Identify problems/challenges article points out]
+- Conflict 1
+- Conflict 2
+- Conflict 3
+
+## Q - Question
+[Clarify or infer article's core question]
+Explicit: [Direct quote]
+Implicit: [Derived from SC]
+
+## A - Answer
+[Summarize article's solution]
+Core solution: [Summary]
+Supporting points: [List]
+
+## 🔍 Assessment
+
+### Logical Completeness
+- S→C: Transition natural?
+- C→Q: Does question stem from complication?
+- Q→A: Does answer address question?
+
+### Quality Scoring
+- S objectivity: [1-5]
+- C urgency: [1-5]
+- Q specificity: [1-5]
+- A feasibility: [1-5]
+
+### Identified Issues
+- [ ] S too subjective
+- [ ] C disconnected from S
+- [ ] Q not explicitly stated
+- [ ] A answers wrong question
+- [ ] Logical leaps
+```
+
+### Method 2: Restructuring (Improving Articles)
+
+```markdown
+# SCQA Restructuring
+
+## Original Structure Problems
+- Issue 1: [e.g., Unclear Situation]
+- Issue 2: [e.g., Jumps to Answer without setup]
+- Issue 3: [e.g., Weak Complication]
