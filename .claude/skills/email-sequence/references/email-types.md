@@ -125,3 +125,130 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 **Copy approach**:
 - Thank them for being a customer
 - Mention specific value/milestone if possible
+- Explain why reviews matter (help others decide)
+- Direct link to review platform
+- Keep it short—this is an ask
+
+---
+
+### Offer Support Proactively
+**Trigger**: Signs of struggle (drop in usage, failed actions, error encounters)
+**Goal**: Save at-risk user, improve experience
+**Format**: Single email
+
+**Trigger examples**:
+- Usage dropped significantly week-over-week
+- Multiple failed attempts at action
+- Viewed help docs repeatedly
+- Stuck at same onboarding step
+
+**Copy approach**:
+- Genuine concern tone
+- Specific: "I noticed you..." (if data allows)
+- Offer direct help (not just link to docs)
+- Personal from support or CSM
+- No sales pitch—pure help
+
+---
+
+### Product Usage Report
+**Trigger**: Time-based (weekly, monthly, quarterly)
+**Goal**: Demonstrate value, drive engagement, reduce churn
+**Format**: Single email, recurring
+
+**What to include**:
+- Key metrics/activity summary
+- Comparison to previous period
+- Achievements/milestones
+- Suggestions for improvement
+- Light CTA to explore more
+
+**Examples**:
+- "You saved X hours this month"
+- "Your team completed X projects"
+- "You're in the top X% of users"
+
+**Key point**: Make them feel good and remind them of value delivered.
+
+---
+
+### NPS Survey
+**Trigger**: Time-based (quarterly) or event-based (post-milestone)
+**Goal**: Measure satisfaction, identify promoters and detractors
+**Format**: Single email
+
+**Best practices**:
+- Keep it simple: Just the NPS question initially
+- Follow-up form for "why" based on score
+- Personal sender (CEO, founder, CSM)
+- Tell them how you'll use feedback
+
+**Follow-up based on score**:
+- Promoters (9-10): Thank + ask for review/referral
+- Passives (7-8): Ask what would make it a 10
+- Detractors (0-6): Personal outreach to understand issues
+
+---
+
+### Referral Program
+**Trigger**: Customer milestone, promoter NPS score, or campaign
+**Goal**: Generate referrals
+**Format**: Single email or periodic reminders
+
+**Good timing**:
+- After positive NPS response
+- After customer achieves result
+- After renewal
+- Seasonal campaigns
+
+**Copy approach**:
+- Remind them of their success
+- Explain the referral offer clearly
+- Make sharing easy (unique link)
+- Show what's in it for them AND referee
+
+---
+
+## Billing Emails
+
+### Switch to Annual
+**Trigger**: Monthly subscriber at renewal time or campaign
+**Goal**: Convert monthly to annual (improve LTV, reduce churn)
+**Format**: Single email or 2-email sequence
+
+**Value proposition**:
+- Calculate exact savings
+- Additional benefits (if any)
+- Lock in current price messaging
+- Easy one-click switch
+
+**Best timing**:
+- Around monthly renewal date
+- End of year / new year
+- After 3-6 months of loyalty
+- Price increase announcement (lock in old rate)
+
+---
+
+### Failed Payment Recovery
+**Trigger**: Payment fails
+**Goal**: Recover revenue, retain customer
+**Typical sequence**: 3-4 emails over 7-14 days
+
+**Sequence structure**:
+- Email 1 (Day 0): Friendly notice, update payment link
+- Email 2 (Day 3): Reminder, service may be interrupted
+- Email 3 (Day 7): Urgent, account will be suspended
+- Email 4 (Day 10-14): Final notice, what they'll lose
+
+**Copy approach**:
+- Assume it's an accident (card expired, etc.)
+- Clear, direct, no guilt
+- Single CTA to update payment
+- Explain what happens if not resolved
+
+**Key metrics**: Recovery rate, time to recovery
+
+---
+
+### Cancellation Survey
