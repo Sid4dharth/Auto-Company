@@ -125,3 +125,130 @@
 **Problem:** Trusting results from very small samples.
 
 **Issues:**
+- High sampling variability
+- Outliers have large influence
+- Assumptions of tests violated
+- Confidence intervals very wide
+
+**Guidelines:**
+- Be skeptical of n < 30
+- Check assumptions carefully
+- Consider non-parametric tests
+- Replicate findings
+
+## Effect Size Misunderstandings
+
+### Pitfall 12: Ignoring Effect Size
+**Problem:** Focusing only on significance, not magnitude.
+
+**Why problematic:**
+- Significance ≠ importance
+- Can't compare across studies
+- Doesn't inform practical decisions
+
+**Solutions:**
+- Always report effect sizes
+- Use standardized measures (Cohen's d, r, η²)
+- Interpret using field conventions
+- Consider minimum clinically important difference
+
+### Pitfall 13: Misinterpreting Standardized Effect Sizes
+**Problem:** Treating Cohen's d = 0.5 as "medium" without context.
+
+**Reality:**
+- Field-specific norms vary
+- Some fields have larger typical effects
+- Real-world importance depends on context
+
+**Better approach:**
+- Compare to effects in same domain
+- Consider practical implications
+- Look at raw effect sizes too
+
+### Pitfall 14: Confusing Explained Variance with Importance
+**Problem:** "Only explains 5% of variance" = unimportant.
+
+**Reality:**
+- Height explains ~5% of variation in NBA player salary but is crucial
+- Complex phenomena have many small contributors
+- Predictive accuracy ≠ causal importance
+
+**Consideration:** Context matters more than percentage alone.
+
+## Correlation and Causation
+
+### Pitfall 15: Correlation Implies Causation
+**Problem:** Inferring causation from correlation.
+
+**Alternative explanations:**
+- Reverse causation (B causes A, not A causes B)
+- Confounding (C causes both A and B)
+- Coincidence
+- Selection bias
+
+**Criteria for causation:**
+- Temporal precedence
+- Covariation
+- No plausible alternatives
+- Ideally: experimental manipulation
+
+### Pitfall 16: Ecological Fallacy
+**Problem:** Inferring individual-level relationships from group-level data.
+
+**Example:** Countries with more chocolate consumption have more Nobel laureates doesn't mean eating chocolate makes you win Nobels.
+
+**Why problematic:** Group-level correlations may not hold at individual level.
+
+### Pitfall 17: Simpson's Paradox
+**Problem:** Trend appears in groups but reverses when combined (or vice versa).
+
+**Example:** Treatment appears worse overall but better in every subgroup.
+
+**Cause:** Confounding variable distributed differently across groups.
+
+**Solution:** Consider confounders and look at appropriate level of analysis.
+
+## Regression and Modeling Pitfalls
+
+### Pitfall 18: Overfitting
+**Problem:** Model fits sample data well but doesn't generalize.
+
+**Causes:**
+- Too many predictors relative to sample size
+- Fitting noise rather than signal
+- No cross-validation
+
+**Solutions:**
+- Use cross-validation
+- Penalized regression (LASSO, ridge)
+- Independent test set
+- Simpler models
+
+### Pitfall 19: Extrapolation Beyond Data Range
+**Problem:** Predicting outside the range of observed data.
+
+**Why dangerous:**
+- Relationships may not hold outside observed range
+- Increased uncertainty not reflected in predictions
+
+**Solution:** Only interpolate; avoid extrapolation.
+
+### Pitfall 20: Ignoring Model Assumptions
+**Problem:** Using statistical tests without checking assumptions.
+
+**Common violations:**
+- Non-normality (for parametric tests)
+- Heteroscedasticity (unequal variances)
+- Non-independence
+- Linearity
+- No multicollinearity
+
+**Solutions:**
+- Check assumptions with diagnostics
+- Use robust methods
+- Transform data
+- Use appropriate non-parametric alternatives
+
+### Pitfall 21: Treating Non-Significant Covariates as Eliminating Confounding
+**Problem:** "We controlled for X and it wasn't significant, so it's not a confounder."
+
