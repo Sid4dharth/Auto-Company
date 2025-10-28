@@ -153,3 +153,158 @@ class PlaywrightScraperAsync:
 
     async def fetch(self, url: str) -> Optional[ScrapingResult]:
         try:
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                context = await browser.new_context(
+                    viewport={'width': 1920, 'height': 1080},
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                )
+                page = await context.new_page()
+
+                # Note: playwright-stealth async version
+                # from playwright_stealth import stealth_async
+                # await stealth_async(page)
+
+                await page.goto(url, wait_until='networkidle', timeout=60000)
+
+                # Wait for content to load
+                await page.wait_for_timeout(2000)
+
+                # Extract content
+                content = await page.evaluate('''() => {
+                    const article = document.querySelector('article, main, .content, #content');
+                    return article ? article.innerText : document.body.innerText;
+                }''')
+
+                title = await page.title()
+
+                await browser.close()
+
+                if len(content) < 100:
+                    return None
+
+                return ScrapingResult(content, title, 'playwright_async')
+        except Exception:
+            return None
+
+# Usage in Jupyter notebook cells:
+# scraper = PlaywrightScraperAsync()
+# result = await scraper.fetch('https://example.com')
+
+class ScrapingCascade:
+    """Try multiple scrapers in order until one succeeds."""
+
+    def __init__(self):
+        self.scrapers = [
+            TrafilaturaСscraper(),
+            RequestsScraper(),
+            PlaywrightScraper(),
+        ]
+
+    def fetch(self, url: str) -> Optional[ScrapingResult]:
+        for scraper in self.scrapers:
+            result = scraper.fetch(url)
+            if result:
+                return result
+        return None
+```
+
+## Undocumented APIs
+
+### Finding undocumented APIs
+
+Use browser developer tools to discover APIs:
+
+1. **Open developer tools** (right-click → Inspect, or F12)
+2. **Go to the Network tab** to monitor all requests
+3. **Filter by Fetch/XHR** to show only API calls
+4. **Trigger the action** you want to capture (search, scroll, click)
+5. **Analyze the response** — usually JSON with key-value pairs
+6. **Copy as cURL** (right-click the request)
+7. **Convert to code** using [curlconverter.com](https://curlconverter.com/)
+
+### Stripping down API requests
+
+When you copy a cURL from dev tools, it includes many parameters. Strip it down by:
+
+1. **Remove unnecessary cookies** — test without them first
+2. **Keep authentication tokens** if required
+3. **Identify the input parameters** you can modify (like `prefix` for search terms)
+4. **Test parameter values** — some expire, so periodically verify
+
+### Example: Reverse-engineering an autocomplete API
+
+```python
+import requests
+import time
+
+def search_suggestions(keyword: str) -> dict:
+    """
+    Get autocompleted search suggestions from an undocumented API.
+    Stripped down from browser dev tools capture.
+    """
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0',
+        'Accept': 'application/json, text/javascript, */*; q=0.01',
+        'Accept-Language': 'en-US,en;q=0.5',
+    }
+
+    params = {
+        'prefix': keyword,
+        'suggestion-type': ['WIDGET', 'KEYWORD'],
+        'alias': 'aps',
+        'plain-mid': '1',
+    }
+
+    response = requests.get(
+        'https://completion.amazon.com/api/2017/suggestions',
+        params=params,
+        headers=headers
+    )
+    return response.json()
+
+# Collect suggestions for multiple keywords
+keywords = ['a', 'b', 'cookie', 'sock']
+data = []
+
+for keyword in keywords:
+    suggestions = search_suggestions(keyword)
+    suggestions['search_word'] = keyword  # track seed keyword
+    time.sleep(1)  # rate limit yourself
+    data.extend(suggestions.get('suggestions', []))
+```
+*Source: [Leon Yin, "Finding Undocumented APIs," Inspect Element](https://inspectelement.org/apis.html), 2023*
+
+## Poison pill detection
+
+Detect paywalls, anti-bot pages, and other failures:
+
+```python
+from dataclasses import dataclass
+from enum import Enum
+import re
+
+class PoisonPillType(Enum):
+    PAYWALL = 'paywall'
+    CAPTCHA = 'captcha'
+    RATE_LIMIT = 'rate_limit'
+    CLOUDFLARE = 'cloudflare'
+    LOGIN_REQUIRED = 'login_required'
+    NOT_FOUND = 'not_found'
+    NONE = 'none'
+
+@dataclass
+class PoisonPillResult:
+    detected: bool
+    type: PoisonPillType
+    confidence: float
+    details: str
+
+class PoisonPillDetector:
+    PATTERNS = {
+        PoisonPillType.PAYWALL: [
+            r'subscribe to continue',
+            r'subscription required',
+            r'become a member',
+            r'sign up to read',
+            r'you\'ve reached your limit',
