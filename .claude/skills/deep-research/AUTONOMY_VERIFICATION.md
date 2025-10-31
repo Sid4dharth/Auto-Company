@@ -138,3 +138,143 @@ Phase 6: PACKAGE
     - Generate markdown report
     - Save to ~/.claude/research_output/
     - No user input needed ✅
+    ↓
+Phase 7: VALIDATE
+    - Run 8 automated checks
+    - No user input needed ✅
+    ↓
+Deliver:
+    - Executive summary (inline)
+    - File path confirmation
+    - Source quality summary
+    ↓
+DONE (Total user interactions: 0 ✅)
+```
+
+### Error Path (Intentional Stops)
+
+**These are INTENTIONAL blocking points (by design):**
+
+1. **Validation Failure (2 attempts)**
+   - Condition: Report fails validation twice
+   - Action: Stop, report issues, ask user
+   - Justification: Don't deliver broken reports
+
+2. **Insufficient Sources (<5)**
+   - Condition: Exhaustive search finds <5 sources
+   - Action: Report limitation, ask to proceed
+   - Justification: User should know about data scarcity
+
+3. **Critically Ambiguous Query**
+   - Condition: Query is genuinely incomprehensible
+   - Action: Ask for clarification
+   - Justification: Can't proceed without basic understanding
+
+**These stops are CORRECT behavior - quality over blind automation.**
+
+---
+
+## 4. PYTHON SCRIPT VERIFICATION
+
+### Interactive Prompt Check
+
+**Command:** `grep -r "input(" scripts/`
+**Result:** ✅ No input() calls found
+
+**Scripts Verified:**
+- ✅ `research_engine.py` (578 lines) - No interactive prompts
+- ✅ `validate_report.py` (293 lines) - No interactive prompts
+- ✅ `source_evaluator.py` (292 lines) - No interactive prompts
+- ✅ `citation_manager.py` (177 lines) - No interactive prompts
+
+### Syntax Validation
+
+**Command:** `python -m py_compile scripts/*.py`
+**Result:** ✅ All scripts compile without errors
+
+**Dependencies:** Python stdlib only (no external packages requiring user setup)
+
+---
+
+## 5. AUTONOMOUS MODE SELECTION
+
+### Default Behavior Matrix
+
+| User Query | Auto-Selected Mode | Time | Sources | User Input Needed? |
+|------------|-------------------|------|---------|-------------------|
+| "deep research X" | Standard | 5-10 min | 15-30 | ❌ No |
+| "quick overview of X" | Quick | 2-5 min | 10-15 | ❌ No |
+| "comprehensive analysis X" | Standard | 5-10 min | 15-30 | ❌ No |
+| "compare X vs Y" | Standard | 5-10 min | 15-30 | ❌ No |
+| "research the thing" (ambiguous) | Ask clarification | N/A | N/A | ✅ Yes (justified) |
+
+**Autonomous Decision Logic:**
+- Clear query → Standard mode (DEFAULT)
+- "quick" keyword → Quick mode
+- "comprehensive" keyword → Standard mode
+- "deep" or "thorough" → Deep mode
+- Ambiguous → Standard mode (when in doubt, proceed)
+- Incomprehensible → Ask (rare edge case)
+
+---
+
+## 6. FILE STRUCTURE VERIFICATION
+
+### Required Files (Claude Code Skill)
+
+```
+~/.claude/skills/deep-research/
+├── SKILL.md ✅ (with valid frontmatter)
+├── scripts/ ✅ (all executable, no interactive prompts)
+│   ├── research_engine.py
+│   ├── validate_report.py
+│   ├── source_evaluator.py
+│   └── citation_manager.py
+├── templates/ ✅
+│   └── report_template.md
+├── reference/ ✅
+│   └── methodology.md
+└── tests/ ✅
+    └── fixtures/
+        ├── valid_report.md
+        └── invalid_report.md
+```
+
+**Status:** ✅ All files present and properly structured
+
+---
+
+## 7. TRIGGER KEYWORDS (Automatic Invocation)
+
+The skill automatically activates when user says:
+
+✅ "deep research"
+✅ "comprehensive analysis"
+✅ "research report"
+✅ "compare X vs Y"
+✅ "analyze trends"
+
+**Exclusions (skill does NOT activate for):**
+
+❌ Simple lookups (use WebSearch instead)
+❌ Debugging (use standard tools)
+❌ Questions answerable with 1-2 searches
+
+---
+
+## 8. CONTEXT OPTIMIZATION (Independent Operation)
+
+### Static vs Dynamic Content
+
+**Static Content (Cached after first use):**
+- Core system instructions
+- Decision trees
+- Workflow definitions
+- Output contracts
+- Quality standards
+- Error handling
+
+**Dynamic Content (Runtime only):**
+- User query
+- Retrieved sources
+- Generated analysis
