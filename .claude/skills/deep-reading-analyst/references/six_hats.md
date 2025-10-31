@@ -117,3 +117,122 @@ Structured method to examine ideas from six distinct perspectives. Wear one hat 
 
 ## Risks If Applied
 - Risk: [consequence]
+- When it fails: [scenario]
+
+## Missing Considerations
+- Doesn't account for: [factor]
+
+## Overly Optimistic Claims
+- [Claim] seems unrealistic because [reason]
+```
+
+**Important:** This is critical, not cynical. Necessary for risk assessment.
+
+---
+
+### 🎩 Yellow Hat: Benefits & Optimism
+
+**Focus:** Positive aspects, value, opportunities
+
+**Questions:**
+- What's the value here?
+- What are the benefits?
+- Why would this work?
+- What's the best-case scenario?
+- What opportunities does this create?
+
+**Language:**
+- "The benefit is..."
+- "This could work because..."
+- "The value here is..."
+- "An opportunity is..."
+
+**In Content Analysis:**
+- Extract valuable insights
+- Identify strong arguments
+- Note practical applications
+- Find novel perspectives
+- Recognize what advances the field
+
+**Template:**
+```markdown
+## Key Value Propositions
+- Valuable insight: [what's useful]
+
+## Strong Points
+- Well-supported: [argument]
+
+## Potential Applications
+- Could be used for: [use case]
+
+## Novel Contributions
+- New perspective on: [topic]
+
+## Best-Case Outcome
+If fully applied: [positive scenario]
+```
+
+**Important:** Be realistic but generous. Find genuine value.
+
+---
+
+### 🎩 Green Hat: Creativity & Alternatives
+
+**Focus:** New ideas, possibilities, innovations
+
+**Questions:**
+- What else is possible?
+- How else could we think about this?
+- What's a creative alternative?
+- What if we combined X with Y?
+- What's unconventional?
+
+**Language:**
+- "What if..."
+- "Another way to look at it..."
+- "We could also..."
+- "An alternative is..."
+
+**In Content Analysis:**
+- Extend the author's ideas further
+- Generate alternatives to proposed solutions
+- Combine with other frameworks
+- Apply to new domains
+- Challenge assumptions creatively
+
+**Template:**
+```markdown
+## Extensions of Ideas
+- Taking [concept] further: [new application]
+
+## Alternative Approaches
+Instead of [author's method], what if: [alternative]
+
+## Creative Combinations
+- [Idea from text] + [other framework] = [new insight]
+
+## Unconventional Applications
+- Apply this to [unexpected domain]
+
+## "What If" Scenarios
+- What if [assumption] were reversed?
+```
+
+**Important:** No criticism in green hat mode. All ideas welcome.
+
+---
+
+### 🎩 Blue Hat: Process & Meta-Thinking
+
+**Focus:** Managing thinking, overview, conclusions
+
+**Questions:**
+- What have we covered?
+- What thinking mode do we need now?
+- What's the summary?
+- What's next?
+- How should we think about this?
+
+**Language:**
+- "We've covered..."
+- "The next step is..."
