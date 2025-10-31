@@ -132,3 +132,137 @@ Why notable: [My interpretation]
 ## Core Concept
 [Central idea in one box]
 
+## Related Concepts
+
+### Direct Connections
+[Concept A] ←→ [Core] : [Relationship]
+[Concept B] ←→ [Core] : [Relationship]
+
+### Secondary Connections  
+[Concept C] ←→ [Concept A] : [Relationship]
+
+## Hierarchy
+[Broader concept]
+    ↓
+[Core concept]
+    ↓
+├─ [Specific example 1]
+├─ [Specific example 2]
+└─ [Specific example 3]
+
+## Cross-Domain Parallels
+- In [Field A]: This is like [Analogy]
+- In [Field B]: This is like [Analogy]
+```
+
+---
+
+## 3. Argument Analysis Template
+
+```markdown
+# Argument Analysis: [Article Title]
+
+## The Claim
+**Main Thesis:** [What author argues]
+
+## The Support
+
+### Evidence Presented
+1. [Evidence 1]
+   - Type: [Data/Anecdote/Study/Expert opinion]
+   - Strength: ⭐⭐⭐⭐⭐ (1-5)
+   - Notes: [Assessment]
+
+2. [Evidence 2]
+   - Type: [Type]
+   - Strength: ⭐⭐⭐
+   - Notes: [Assessment]
+
+### Logical Structure
+[Premise 1] + [Premise 2] → [Conclusion]
+
+**Valid?** [Yes/No/Partially]
+**Sound?** [Yes/No - are premises true?]
+
+## Counter-Arguments
+
+### Acknowledged by Author
+- [Counter-point mentioned]
+- [Author's response]
+- [My assessment of response]
+
+### Not Addressed
+- [Missing counter-argument 1]
+- [Missing counter-argument 2]
+
+## Alternative Explanations
+The data could also mean:
+- [Alternative 1]
+- [Alternative 2]
+
+## Verdict
+**Overall Assessment:** [Rating + reasoning]
+**When argument is strongest:** [Context]
+**When argument is weakest:** [Context]
+```
+
+---
+
+## 4. Practical Application Template
+
+```markdown
+# Application Plan: [Concept from Article]
+
+## Current Situation
+**Problem I'm facing:** [Specific issue]
+**Why this concept is relevant:** [Connection]
+
+## The Concept
+[Brief explanation in my words]
+
+## Application Strategy
+
+### Phase 1: Test (Week 1)
+**Experiment:** [Small, low-risk test]
+**Measure:** [How I'll know if it works]
+**Expected outcome:** [Hypothesis]
+
+### Phase 2: Refine (Week 2-3)
+**Based on test results:**
+- If works: [How to expand]
+- If doesn't work: [What to adjust]
+
+### Phase 3: Integrate (Month 2)
+**Full implementation:** [How to make it routine]
+
+## Success Metrics
+- **Leading indicator:** [Early signal]
+- **Lagging indicator:** [Long-term outcome]
+
+## Obstacles & Solutions
+| Potential Obstacle | Mitigation Strategy |
+|--------------------|---------------------|
+| [Obstacle 1] | [How to handle] |
+| [Obstacle 2] | [How to handle] |
+
+## Check-in Schedule
+- [ ] Day 7: [Review question]
+- [ ] Day 30: [Review question]
+- [ ] Day 90: [Review question]
+```
+
+---
+
+## 5. Compare & Contrast Template
+
+```markdown
+# Comparison: [Source 1] vs [Source 2]
+
+## On [Topic/Question]
+
+### [Source 1] Position
+**Core claim:** [What they argue]
+**Key evidence:** [Main support]
+**Assumptions:** [What they take as given]
+
+### [Source 2] Position  
