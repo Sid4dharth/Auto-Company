@@ -116,3 +116,121 @@ class ReportValidator:
         if missing_recommended:
             self.warnings.append(f"Missing recommended sections (for academic rigor): {', '.join(missing_recommended)}")
 
+        return True
+
+    def _check_citations(self) -> bool:
+        """Check citation format and presence"""
+        # Find all citation references [1], [2], etc.
+        citations = re.findall(r'\[(\d+)\]', self.content)
+
+        if not citations:
+            self.errors.append("No citations found in report")
+            return False
+
+        unique_citations = set(citations)
+
+        if len(unique_citations) < 10:
+            self.warnings.append(f"Only {len(unique_citations)} unique sources cited (recommended: ≥10)")
+
+        # Check for consecutive citation numbers
+        citation_nums = sorted([int(c) for c in unique_citations])
+        if citation_nums:
+            max_citation = max(citation_nums)
+            expected = set(range(1, max_citation + 1))
+            missing = expected - set(citation_nums)
+
+            if missing:
+                self.warnings.append(f"Non-consecutive citation numbers, missing: {sorted(missing)}")
+
+        return True
+
+    def _check_bibliography(self) -> bool:
+        """Check bibliography exists, matches citations, and has no truncation placeholders"""
+        pattern = r'## Bibliography(.*?)(?=##|\Z)'
+        match = re.search(pattern, self.content, re.DOTALL | re.IGNORECASE)
+
+        if not match:
+            self.errors.append("Missing 'Bibliography' section")
+            return False
+
+        bib_section = match.group(1)
+
+        # CRITICAL: Check for truncation placeholders (2025 CiteGuard enhancement)
+        truncation_patterns = [
+            (r'\[\d+-\d+\]', 'Citation range (e.g., [8-75])'),
+            (r'Additional.*citations', 'Phrase "Additional citations"'),
+            (r'would be included', 'Phrase "would be included"'),
+            (r'\[\.\.\.continue', 'Pattern "[...continue"'),
+            (r'\[Continue with', 'Pattern "[Continue with"'),
+            (r'etc\.(?!\w)', 'Standalone "etc."'),
+            (r'and so on', 'Phrase "and so on"'),
+        ]
+
+        for pattern_re, description in truncation_patterns:
+            if re.search(pattern_re, bib_section, re.IGNORECASE):
+                self.errors.append(f"⚠️ CRITICAL: Bibliography contains truncation placeholder: {description}")
+                self.errors.append(f"   This makes the report UNUSABLE - complete bibliography required")
+                return False
+
+        # Count bibliography entries [1], [2], etc.
+        bib_entries = re.findall(r'^\[(\d+)\]', bib_section, re.MULTILINE)
+
+        if not bib_entries:
+            self.errors.append("Bibliography has no entries")
+            return False
+
+        # Check citation number continuity (no gaps)
+        bib_nums = sorted([int(n) for n in bib_entries])
+        if bib_nums:
+            expected = list(range(1, bib_nums[-1] + 1))
+            actual = bib_nums
+            missing = [n for n in expected if n not in actual]
+            if missing:
+                self.errors.append(f"Bibliography has gaps in numbering: missing {missing}")
+                return False
+
+        # Find citations in text
+        text_citations = set(re.findall(r'\[(\d+)\]', self.content))
+        bib_citations = set(bib_entries)
+
+        # Check all citations have bibliography entries
+        missing_in_bib = text_citations - bib_citations
+        if missing_in_bib:
+            self.errors.append(f"Citations missing from bibliography: {sorted(missing_in_bib)}")
+            return False
+
+        # Check for unused bibliography entries
+        unused = bib_citations - text_citations
+        if unused:
+            self.warnings.append(f"Unused bibliography entries: {sorted(unused)}")
+
+        return True
+
+    def _check_placeholders(self) -> bool:
+        """Check for placeholder text that shouldn't be in final report"""
+        placeholders = [
+            'TBD', 'TODO', 'FIXME', 'XXX',
+            '[citation needed]', '[needs citation]',
+            '[placeholder]', '[TODO]', '[TBD]'
+        ]
+
+        found_placeholders = []
+        for placeholder in placeholders:
+            if placeholder in self.content:
+                found_placeholders.append(placeholder)
+
+        if found_placeholders:
+            self.errors.append(f"Found placeholder text: {', '.join(found_placeholders)}")
+            return False
+
+        return True
+
+    def _check_content_truncation(self) -> bool:
+        """Check for content truncation patterns (2025 Progressive Assembly enhancement)"""
+        truncation_patterns = [
+            (r'Content continues', 'Phrase "Content continues"'),
+            (r'Due to length', 'Phrase "Due to length"'),
+            (r'would continue', 'Phrase "would continue"'),
+            (r'\[Sections \d+-\d+', 'Pattern "[Sections X-Y"'),
+            (r'Additional sections', 'Phrase "Additional sections"'),
+            (r'comprehensive.*word document that continues', 'Pattern "comprehensive...document that continues"'),
