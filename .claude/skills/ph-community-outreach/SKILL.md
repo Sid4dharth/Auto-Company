@@ -109,3 +109,113 @@ the tech stack, or the journey!
 
 #### Reddit Best Practices
 - ✓ Post during active hours (9 AM - 5 PM local)
+- ✓ Respond to every comment
+- ✓ Be humble and open to criticism
+- ✓ Share actual value/learnings
+- ✓ Use authentic language
+
+#### Reddit Avoid
+- ❌ Posting in 10+ subreddits at once (spam)
+- ❌ Using the same text everywhere
+- ❌ Just dropping a link
+- ❌ Ignoring negative feedback
+- ❌ Posting in large subreddits without karma
+
+---
+
+### Indie Hackers
+
+#### Why Indie Hackers Works
+- Community of makers/founders
+- Celebrate launches and milestones
+- Value transparency and learning
+- Often reciprocal support
+
+#### Indie Hackers Post Template
+```
+Title: Just launched [Product] on Product Hunt -
+       here's what I learned building it
+
+Hey IH community!
+
+Today I launched [Product] on Product Hunt and wanted
+to share the journey.
+
+**📝 The Backstory**
+[How you got the idea, why you built it]
+
+**🔨 What I Built**
+[Product] is [description]. It helps [audience]
+[achieve outcome].
+
+**📊 Key Numbers**
+- Time to build: [X months]
+- Lines of code: [X] (or tech stack)
+- Beta users before launch: [X]
+- Current MRR: [X or "pre-revenue"]
+
+**💡 Lessons Learned**
+1. [Key lesson]
+2. [Key lesson]
+3. [Key lesson]
+
+**🎯 What's Next**
+[Your roadmap or next steps]
+
+**🙏 The Ask**
+Would love feedback from this community:
+- [Specific question]
+- [Specific question]
+
+Product Hunt: [Link]
+Website: [Link]
+
+AMA about the build!
+```
+
+#### Indie Hackers Best Practices
+- ✓ Share real numbers (transparency wins)
+- ✓ Focus on the journey, not just the product
+- ✓ Engage with other launches too
+- ✓ Join relevant IH groups
+- ✓ Follow up with results post
+
+---
+
+### Hacker News
+
+#### Hacker News Reality Check
+- Very high bar for quality
+- Community can be harsh
+- Not for every product
+- Best for: Dev tools, technical products, novel tech
+
+#### HN Post Strategy
+
+**Show HN Format:**
+```
+Title: Show HN: [Product Name] – [Brief description]
+
+[Link to product]
+
+Then in comments, add context:
+
+Hey HN! I built [Product] because [reason].
+
+Technical details:
+- Built with [tech stack]
+- [Interesting technical challenge]
+- [Performance/scale info]
+
+I'd appreciate any feedback, especially on:
+- [Technical question]
+- [UX question]
+
+Happy to discuss the implementation!
+```
+
+#### HN Best Practices
+- ✓ Technical substance required
+- ✓ Be ready for tough questions
+- ✓ Respond thoughtfully to criticism
+- ✓ Don't ask for upvotes (ever)
