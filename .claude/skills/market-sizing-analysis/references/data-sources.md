@@ -139,3 +139,143 @@ Industry associations often publish market research:
 
 **LinkedIn Sales Navigator** ($99/month)
 
+- Company and employee counts
+- Industry filters
+- Best for: B2B customer counting
+
+**ZoomInfo** (Custom pricing)
+
+- Company databases with firmographics
+- Contact data
+- Best for: B2B TAM calculations
+
+**Crunchbase** ($29-$99/month)
+
+- Startup company data
+- Funding and employee information
+- Best for: Tech startup markets
+
+**BuiltWith** ($295-$995/month)
+
+- Technology usage data
+- Website analytics
+- Best for: Technology adoption sizing
+
+### Consumer Data
+
+**Euromonitor** (Custom pricing)
+
+- Consumer market research
+- Best for: B2C product markets
+
+**Nielsen** (Custom pricing)
+
+- Consumer behavior and media
+- Best for: CPG, retail, media markets
+
+**Mintel** (Custom pricing)
+
+- Consumer trends and insights
+- Best for: B2C products and services
+
+## Search and Discovery Tools
+
+### Market Research Aggregators
+
+**Research and Markets** (https://www.researchandmarkets.com)
+
+- Aggregates reports from 100+ publishers
+- $500-$10K per report
+- Search across all major research firms
+
+**MarketsandMarkets** (https://www.marketsandmarkets.com)
+
+- Custom and syndicated research
+- $4K-$10K per report
+- Good for niche B2B markets
+
+### Free Search Tools
+
+**Google Scholar** (https://scholar.google.com)
+
+- Free academic research
+- Best for: Emerging technologies, academic validation
+
+**SSRN** (https://www.ssrn.com)
+
+- Free working papers
+- Best for: Financial services, economics
+
+**arXiv** (https://arxiv.org)
+
+- Free preprints in CS, physics, etc.
+- Best for: AI/ML, scientific markets
+
+## Competitive Intelligence
+
+### Public Company Analysis
+
+**Yahoo Finance** (Free)
+
+- Public company financials
+- Segment revenue from earnings
+
+**Seeking Alpha** (Free + Premium)
+
+- Earnings transcripts
+- Analyst estimates
+
+**Public company investor relations**
+
+- Annual reports (10-K)
+- Investor presentations
+
+### Private Company Intelligence
+
+**PrivCo** (Custom pricing)
+
+- Private company financials
+- M&A transaction data
+
+**Owler** (Free + Premium)
+
+- Company profiles and news
+- Revenue estimates
+
+**SimilarWeb** (Free + Premium)
+
+- Website traffic analytics
+- Best for: Online business sizing
+
+## Survey and Primary Research
+
+### Survey Tools
+
+**SurveyMonkey** ($25-$75/month)
+
+- DIY surveys
+- Best for: Customer willingness to pay
+
+**Typeform** ($25-$83/month)
+
+- Conversational surveys
+- Best for: User research
+
+**Qualtrics** (Enterprise pricing)
+
+- Professional research platform
+- Best for: Large-scale studies
+
+### Panel Providers
+
+**Respondent.io** ($100-$200 per response)
+
+- Recruit professionals for interviews
+- Best for: B2B customer research
+
+**UserTesting** ($49 per participant)
+
+- User research and testing
+- Best for: Product validation
+
+**Google Surveys** ($0.10-$3.50 per response)
