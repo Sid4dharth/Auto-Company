@@ -147,3 +147,152 @@ Links are prioritized for crawling:
 ### Link Scoring
 
 ```python
+def score_link(link, index, is_same_domain, in_main_content):
+    score = 1000 - index  # Position: earlier = higher
+
+    if is_same_domain:
+        score += 500
+
+    if in_main_content:
+        score += 300
+
+    # Penalize common non-content patterns
+    skip_patterns = ['login', 'logout', 'signup', 'settings', 'account', '#']
+    if any(p in link.href.lower() for p in skip_patterns):
+        score -= 1000
+
+    return score
+```
+
+---
+
+## The Crawl Agent Prompt
+
+After initial page extraction completes Pass 1, spawn this agent:
+
+````markdown
+# websh Eager Crawl Agent
+
+You are prefetching linked pages for websh to make navigation instant.
+
+## Origin Page
+
+URL: {url}
+Slug: {slug}
+Parsed file: {parsed_path}
+
+## Settings
+
+depth: {depth}
+same_domain: {same_domain}
+max_per_page: {max_per_page}
+max_concurrent: {max_concurrent}
+
+## Task
+
+1. Read the parsed markdown file to get the link list
+2. Filter and prioritize links:
+   - Skip already-cached URLs (check .websh/cache/index.md)
+   - Skip external if same_domain=true
+   - Skip login/logout/settings/account URLs
+   - Take top {max_per_page} by priority (earlier position = higher)
+3. For each link, spawn a fetch+extract task (like cd does)
+4. Track progress in .websh/crawl-queue.md
+5. If depth > 1, queue discovered links for next layer
+
+## Rate Limiting
+
+- Max {max_concurrent} concurrent fetches
+- {delay_ms}ms delay between spawning new tasks
+- Be respectful of the origin server
+
+## Spawn Pattern
+
+For each URL to prefetch:
+
+```python
+Task(
+    description=f"websh: prefetch {slug}",
+    prompt=FETCH_AND_EXTRACT_PROMPT,  # Same as cd uses
+    subagent_type="general-purpose",
+    model="haiku",
+    run_in_background=True
+)
+```
+
+## Completion
+
+When all links at all depths are processed:
+1. Update crawl-queue.md with final stats
+2. Log completion: "Prefetch complete: {n} pages cached from {origin}"
+
+## Graceful Handling
+
+- If a fetch fails, log and continue with others
+- If rate limited, back off and retry
+- Never block on slow sites—move to next link
+- User can cancel with `kill %crawl` or `prefetch stop`
+````
+
+---
+
+## Depth-2 Crawling
+
+When depth > 1, the crawl continues recursively:
+
+```
+Layer 0: cd https://news.ycombinator.com
+         → extracts 30 links
+
+Layer 1: prefetch top 20 links
+         → each page extracts ~10-30 more links
+
+Layer 2: prefetch top 20 links from each Layer 1 page
+         → but skip duplicates across all layers
+```
+
+### Deduplication
+
+The crawl queue tracks all URLs seen:
+
+```markdown
+## Seen URLs
+
+(URLs already cached, in progress, or queued—don't crawl again)
+
+- https://news.ycombinator.com
+- https://news.ycombinator.com/item?id=41234567
+- https://news.ycombinator.com/item?id=41234568
+...
+```
+
+This prevents re-crawling the same URL at different depths.
+
+---
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `prefetch` | Show current crawl status |
+| `prefetch on` | Enable eager crawl |
+| `prefetch off` | Disable eager crawl |
+| `prefetch <url>` | Manually prefetch a specific URL |
+| `prefetch --depth N` | Set crawl depth |
+| `prefetch --stop` | Stop current crawl |
+| `crawl <url>` | Explicit full crawl of URL |
+| `crawl --depth N` | Set depth for explicit crawl |
+| `queue` | Show crawl queue |
+
+### prefetch status output
+
+```
+Eager crawl: enabled
+Depth: 2, Same domain: yes, Max per page: 20
+
+Current crawl:
+  Origin: https://news.ycombinator.com
+  Progress: Layer 1 - 15/20 complete
+  Queued: 42 URLs for Layer 2
+
+Recent:
