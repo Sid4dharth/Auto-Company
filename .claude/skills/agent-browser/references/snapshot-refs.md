@@ -95,3 +95,100 @@ agent-browser snapshot -i
 # @e1 [h1] "Page 2"  ← Different element now!
 ```
 
+## Best Practices
+
+### 1. Always Snapshot Before Interacting
+
+```bash
+# CORRECT
+agent-browser open https://example.com
+agent-browser snapshot -i          # Get refs first
+agent-browser click @e1            # Use ref
+
+# WRONG
+agent-browser open https://example.com
+agent-browser click @e1            # Ref doesn't exist yet!
+```
+
+### 2. Re-Snapshot After Navigation
+
+```bash
+agent-browser click @e5            # Navigates to new page
+agent-browser snapshot -i          # Get new refs
+agent-browser click @e1            # Use new refs
+```
+
+### 3. Re-Snapshot After Dynamic Changes
+
+```bash
+agent-browser click @e1            # Opens dropdown
+agent-browser snapshot -i          # See dropdown items
+agent-browser click @e7            # Select item
+```
+
+### 4. Snapshot Specific Regions
+
+For complex pages, snapshot specific areas:
+
+```bash
+# Snapshot just the form
+agent-browser snapshot @e9
+```
+
+## Ref Notation Details
+
+```
+@e1 [tag type="value"] "text content" placeholder="hint"
+│    │   │             │               │
+│    │   │             │               └─ Additional attributes
+│    │   │             └─ Visible text
+│    │   └─ Key attributes shown
+│    └─ HTML tag name
+└─ Unique ref ID
+```
+
+### Common Patterns
+
+```
+@e1 [button] "Submit"                    # Button with text
+@e2 [input type="email"]                 # Email input
+@e3 [input type="password"]              # Password input
+@e4 [a href="/page"] "Link Text"         # Anchor link
+@e5 [select]                             # Dropdown
+@e6 [textarea] placeholder="Message"     # Text area
+@e7 [div class="modal"]                  # Container (when relevant)
+@e8 [img alt="Logo"]                     # Image
+@e9 [checkbox] checked                   # Checked checkbox
+@e10 [radio] selected                    # Selected radio
+```
+
+## Troubleshooting
+
+### "Ref not found" Error
+
+```bash
+# Ref may have changed - re-snapshot
+agent-browser snapshot -i
+```
+
+### Element Not Visible in Snapshot
+
+```bash
+# Scroll to reveal element
+agent-browser scroll --bottom
+agent-browser snapshot -i
+
+# Or wait for dynamic content
+agent-browser wait 1000
+agent-browser snapshot -i
+```
+
+### Too Many Elements
+
+```bash
+# Snapshot specific container
+agent-browser snapshot @e5
+
+# Or use get text for content-only extraction
+agent-browser get text @e5
+```
