@@ -141,3 +141,145 @@ class TestGetWorkerName:
         project_dir = tmp_path / "single-quotes"
         project_dir.mkdir()
 
+        wrangler_toml = project_dir / "wrangler.toml"
+        wrangler_toml.write_text("name = 'my-worker'\n")
+
+        deployer = CloudflareDeploy(project_dir=project_dir)
+        assert deployer.get_worker_name() == "my-worker"
+
+
+class TestBuildDeployCommand:
+    """Test deploy command construction"""
+
+    def test_basic_command(self, temp_project):
+        deployer = CloudflareDeploy(project_dir=temp_project)
+        cmd = deployer.build_deploy_command()
+        assert cmd == ["wrangler", "deploy"]
+
+    def test_command_with_env(self, temp_project):
+        deployer = CloudflareDeploy(project_dir=temp_project, env="production")
+        cmd = deployer.build_deploy_command()
+        assert cmd == ["wrangler", "deploy", "--env", "production"]
+
+    def test_command_with_dry_run(self, temp_project):
+        deployer = CloudflareDeploy(project_dir=temp_project, dry_run=True)
+        cmd = deployer.build_deploy_command()
+        assert cmd == ["wrangler", "deploy", "--dry-run"]
+
+    def test_command_with_env_and_dry_run(self, temp_project):
+        deployer = CloudflareDeploy(
+            project_dir=temp_project,
+            env="staging",
+            dry_run=True
+        )
+        cmd = deployer.build_deploy_command()
+        assert cmd == ["wrangler", "deploy", "--env", "staging", "--dry-run"]
+
+
+class TestRunCommand:
+    """Test command execution"""
+
+    @patch('subprocess.run')
+    def test_run_command_success(self, mock_run, deployer):
+        mock_run.return_value = Mock(
+            returncode=0,
+            stdout="Success",
+            stderr=""
+        )
+
+        exit_code, stdout, stderr = deployer.run_command(["echo", "test"])
+
+        assert exit_code == 0
+        assert stdout == "Success"
+        assert stderr == ""
+        mock_run.assert_called_once()
+
+    @patch('subprocess.run')
+    def test_run_command_failure_with_check(self, mock_run, deployer):
+        mock_run.side_effect = subprocess.CalledProcessError(
+            1, "cmd", stderr="Error"
+        )
+
+        with pytest.raises(CloudflareDeployError, match="Command failed"):
+            deployer.run_command(["false"], check=True)
+
+    @patch('subprocess.run')
+    def test_run_command_failure_no_check(self, mock_run, deployer):
+        mock_run.side_effect = subprocess.CalledProcessError(
+            1, "cmd", output="", stderr="Error"
+        )
+
+        exit_code, stdout, stderr = deployer.run_command(["false"], check=False)
+
+        assert exit_code == 1
+
+
+class TestDeploy:
+    """Test full deployment flow"""
+
+    @patch.object(CloudflareDeploy, 'check_wrangler_installed')
+    @patch.object(CloudflareDeploy, 'run_command')
+    def test_deploy_success(self, mock_run_cmd, mock_check_wrangler, deployer):
+        mock_check_wrangler.return_value = True
+        mock_run_cmd.return_value = (0, "Deployed successfully", "")
+
+        result = deployer.deploy()
+
+        assert result is True
+        mock_check_wrangler.assert_called_once()
+        mock_run_cmd.assert_called_once()
+
+    @patch.object(CloudflareDeploy, 'check_wrangler_installed')
+    def test_deploy_wrangler_not_installed(self, mock_check_wrangler, deployer):
+        mock_check_wrangler.return_value = False
+
+        with pytest.raises(CloudflareDeployError, match="wrangler CLI not installed"):
+            deployer.deploy()
+
+    @patch.object(CloudflareDeploy, 'check_wrangler_installed')
+    @patch.object(CloudflareDeploy, 'run_command')
+    def test_deploy_command_fails(self, mock_run_cmd, mock_check_wrangler, deployer):
+        mock_check_wrangler.return_value = True
+        mock_run_cmd.side_effect = CloudflareDeployError("Deploy failed")
+
+        with pytest.raises(CloudflareDeployError, match="Deploy failed"):
+            deployer.deploy()
+
+    def test_deploy_invalid_project(self, tmp_path):
+        deployer = CloudflareDeploy(project_dir=tmp_path / "nonexistent")
+
+        with pytest.raises(CloudflareDeployError):
+            deployer.deploy()
+
+
+class TestIntegration:
+    """Integration tests"""
+
+    @patch.object(CloudflareDeploy, 'check_wrangler_installed')
+    @patch.object(CloudflareDeploy, 'run_command')
+    def test_full_deployment_flow(self, mock_run_cmd, mock_check_wrangler, temp_project):
+        mock_check_wrangler.return_value = True
+        mock_run_cmd.return_value = (0, "Success", "")
+
+        deployer = CloudflareDeploy(
+            project_dir=temp_project,
+            env="production",
+            dry_run=False,
+            verbose=True
+        )
+
+        result = deployer.deploy()
+
+        assert result is True
+        assert mock_run_cmd.call_count == 1
+
+        # Verify correct command was built
+        call_args = mock_run_cmd.call_args[0][0]
+        assert "wrangler" in call_args
+        assert "deploy" in call_args
+        assert "--env" in call_args
+        assert "production" in call_args
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-v"])
