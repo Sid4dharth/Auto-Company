@@ -93,3 +93,98 @@ Em dashes are longer than hyphens (-) and are used for emphasis, interruptions, 
 | in the landscape of | in, within |
 | in today's [anything] | currently, now, today |
 
+---
+
+## Phrases That Signal AI Writing
+
+### Opening Phrases to Avoid
+- "In today's fast-paced world..."
+- "In today's digital age..."
+- "In an era of..."
+- "In the ever-evolving landscape of..."
+- "In the realm of..."
+- "It's important to note that..."
+- "Let's delve into..."
+- "Imagine a world where..."
+
+### Transitional Phrases to Avoid
+- "That being said..."
+- "With that in mind..."
+- "It's worth mentioning that..."
+- "At its core..."
+- "To put it simply..."
+- "In essence..."
+- "This begs the question..."
+
+### Concluding Phrases to Avoid
+- "In conclusion..."
+- "To sum up..."
+- "By [doing X], you can [achieve Y]..."
+- "In the final analysis..."
+- "All things considered..."
+- "At the end of the day..."
+
+### Structural Patterns to Avoid
+- "Whether you're a [X], [Y], or [Z]..." (listing three examples after "whether")
+- "It's not just [X], it's also [Y]..."
+- "Think of [X] as [elaborate metaphor]..."
+- Starting sentences with "By" followed by a gerund: "By understanding X, you can Y..."
+
+---
+
+## Filler Words and Empty Intensifiers
+
+These words often add nothing to meaning. Remove them or find specific alternatives:
+
+- absolutely
+- actually
+- basically
+- certainly
+- clearly
+- definitely
+- essentially
+- extremely
+- fundamentally
+- incredibly
+- interestingly
+- naturally
+- obviously
+- quite
+- really
+- significantly
+- simply
+- surely
+- truly
+- ultimately
+- undoubtedly
+- very
+
+---
+
+## Academic-Specific AI Tells
+
+| Avoid | Use Instead |
+|-------|-------------|
+| shed light on | clarify, explain, reveal |
+| pave the way for | enable, allow, make possible |
+| a myriad of | many, numerous, various |
+| a plethora of | many, numerous, several |
+| paramount | very important, essential, critical |
+| pertaining to | about, regarding, concerning |
+| prior to | before |
+| subsequent to | after |
+| in light of | because of, given, considering |
+| with respect to | about, regarding, for |
+| in terms of | regarding, for, about |
+| the fact that | that (or rewrite sentence) |
+
+---
+
+## How to Self-Check
+
+1. Read your text aloud. If phrases sound unnatural in speech, revise them
+2. Ask: "Would I say this in a conversation with a colleague?"
+3. Check for repetitive sentence structures
+4. Look for clusters of the words listed above
+5. Ensure varied sentence lengths (not all similar length)
+6. Verify each intensifier adds genuine meaning
