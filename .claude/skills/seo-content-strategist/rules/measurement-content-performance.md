@@ -137,3 +137,142 @@ For each important content piece:
 ### Good Content Performance Analysis
 
 ```
+Analysis: "Kubernetes Secrets Guide" performance review
+
+Traffic: 4,500 sessions/month (+25% vs last quarter)
+Primary keyword: #3 for "kubernetes secrets management"
+CTR: 8.2% (above benchmark for position 3)
+Bounce rate: 45% (healthy for educational content)
+Avg. time: 4:32 (strong engagement)
+Conversions: 45 demo requests/month (1% conversion rate)
+Backlinks: 12 new referring domains this quarter
+
+Assessment: Strong performer
+Action: Protect rankings, update quarterly, add internal links
+        from new related content
+```
+
+### Bad Content Performance Analysis
+
+```
+Analysis: "Docker Secrets Tutorial" performance review
+
+Traffic: 150 sessions/month (-40% vs last quarter)
+Primary keyword: #34 for "docker secrets"
+CTR: 1.1% (low, but position explains it)
+Bounce rate: 78% (concerning)
+Avg. time: 0:48 (poor engagement)
+Conversions: 0
+Backlinks: 0 this quarter
+
+Assessment: Underperformer
+
+Investigation:
+- SERP changed? → Yes, new featured snippet
+- Content outdated? → Yes, references Docker 19
+- Better competitors? → Yes, 3 fresher guides now rank
+
+Action: Major refresh or consolidate into broader Docker guide
+```
+
+### Attribution for SEO
+
+```
+Multi-touch attribution for organic:
+
+First Touch: User found via "what is secrets management" (blog)
+             ↓
+Touch 2:     Returned via "kubernetes secrets best practices" (blog)
+             ↓
+Touch 3:     Direct visit to pricing page
+             ↓
+Touch 4:     Searched "infisical demo" (branded)
+             ↓
+Conversion:  Demo request
+
+Last-click gives 100% credit to branded search
+First-click gives 100% credit to first blog post
+Linear gives 25% to each touchpoint
+
+Recommendation: Use position-based (40% first, 40% last, 20% middle)
+for balanced view of SEO impact
+```
+
+### Organic Conversion Tracking
+
+| Conversion Type | How to Track | Attribution |
+|-----------------|--------------|-------------|
+| **Direct** | Goal on organic landing page | First touch |
+| **Assisted** | Organic in conversion path | Multi-touch |
+| **Post-impression** | Visited organically, converted later | Time-decay |
+
+Setup in GA4:
+- Create segment for organic traffic
+- Track micro-conversions (email signup, content download)
+- Track macro-conversions (demo, trial, purchase)
+- Set up funnel visualization
+
+### Reporting Frequency
+
+| Report | Frequency | Audience | Focus |
+|--------|-----------|----------|-------|
+| **Executive** | Monthly | Leadership | ROI, revenue, strategic metrics |
+| **Team** | Weekly | Marketing team | Tactical metrics, progress |
+| **Content** | Monthly | Content team | Per-page performance |
+| **Technical** | Weekly | Dev/SEO team | Errors, crawl issues, CWV |
+| **Competitive** | Quarterly | Strategy | Market share, gaps |
+
+### Competitive Benchmarking
+
+| Metric | How to Compare |
+|--------|----------------|
+| **Share of voice** | Keyword rankings vs competitors |
+| **Domain authority** | Ahrefs/Moz domain rating |
+| **Content gap** | Keywords they rank for, you don't |
+| **Link gap** | Sites linking to them, not you |
+| **SERP features** | Who owns snippets, PAA |
+
+### Forecasting Organic Growth
+
+```
+Conservative forecast model:
+
+Current: 50,000 organic sessions/month
+
+Assumptions:
+- 10 new blog posts/quarter (averaging 500 sessions/mo each)
+- 5% monthly growth on existing content (compounding)
+- 2% monthly decay on older content
+
+Quarter 1: 50,000 + 5,000 (new) + 2,500 (growth) - 1,000 (decay)
+         = 56,500 sessions/month
+
+Quarter 2: 56,500 + 5,000 + 2,825 - 1,130
+         = 63,195 sessions/month
+
+Present forecast with confidence intervals (actual ± 20%)
+```
+
+### Tool Stack for SEO Measurement
+
+| Function | Free Tools | Paid Tools |
+|----------|------------|------------|
+| **Traffic** | GA4, Search Console | — |
+| **Rankings** | Search Console (sampled) | Ahrefs, Semrush, Moz |
+| **Backlinks** | — | Ahrefs, Majestic, Moz |
+| **Technical** | Screaming Frog (500 URLs), PageSpeed | Screaming Frog, Sitebulb |
+| **Competitive** | — | Ahrefs, Semrush, SpyFu |
+| **Reporting** | Looker Studio | Various BI tools |
+
+### Anti-Patterns
+
+- **Vanity metrics** — Celebrating traffic with no conversions
+- **Daily ranking checks** — Rankings fluctuate; weekly is sufficient
+- **Ignoring mobile** — 60%+ traffic is mobile; segment reporting
+- **No benchmarking** — Numbers mean nothing without context
+- **Position obsession** — #4 to #3 matters more than #34 to #28
+- **All-traffic focus** — Non-brand traffic shows real SEO impact
+- **Short timeframes** — SEO needs 3-6 month windows
+- **Last-click only** — Misses awareness content value
+- **No segmentation** — Blog vs docs vs product pages differ
+- **Manual reporting** — Automate dashboards, spend time on analysis
