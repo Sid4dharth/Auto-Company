@@ -119,3 +119,124 @@ Prioritize highest combined scores first.
 | **Intro paragraph** | Hook is weak | Lead with value, curiosity |
 | **Statistics** | Data older than 1 year | Find current stats, cite sources |
 | **Screenshots** | UI has changed | Capture current interface |
+| **Code examples** | Technology updated | Test and update syntax |
+| **Internal links** | New related content exists | Link to recent posts |
+| **External links** | Links broken or outdated | Replace with current sources |
+| **FAQ section** | PAA questions not covered | Add questions people ask |
+| **Competitor gaps** | Ranking content covers more | Match and exceed depth |
+
+### Content Consolidation Strategy
+
+When you have multiple weak posts on similar topics:
+
+```
+Before consolidation:
+├── /blog/secrets-in-docker (300 visits/mo)
+├── /blog/docker-secrets-tutorial (200 visits/mo)
+├── /blog/managing-docker-secrets (150 visits/mo)
+└── /blog/docker-secret-management (50 visits/mo)
+
+After consolidation:
+├── /blog/docker-secrets-guide (1,200 visits/mo)
+│   └── Comprehensive guide combining all content
+│   └── Best sections from each post
+│   └── No duplicate coverage
+│
+└── 301 redirects from old URLs to new
+
+Result: 1 strong page > 4 weak pages competing
+```
+
+### Consolidation Decision Tree
+
+```
+Do you have multiple posts on same/similar topic?
+    │
+    ├── Yes → Are any ranking well (top 10)?
+    │   │
+    │   ├── Yes → Keep the winner, redirect others to it
+    │   │
+    │   └── No → Consolidate into one comprehensive piece
+    │
+    └── No → Individual optimization
+```
+
+### Historical Optimization Process
+
+```
+Monthly process:
+
+1. Pull Search Console data (last 28 days vs previous period)
+
+2. Identify quick wins:
+   └── Pages ranking 4-10 with high impressions
+   └── These are close to top 3 with small changes
+
+3. For each quick win:
+   ├── Check current SERP (what's beating you?)
+   ├── Identify content gaps
+   ├── Improve title/meta for CTR
+   ├── Add missing sections
+   └── Update publish date after meaningful changes
+
+4. Track position changes over 2-4 weeks
+```
+
+### Quick Win Optimization
+
+For pages ranking #4-10:
+
+```
+High-impact, low-effort changes:
+
+1. Title tag optimization
+   └── More compelling, add year, match intent better
+
+2. Add FAQ section
+   └── Pull from PAA, answer concisely
+
+3. Improve internal linking
+   └── Link from high-authority pages
+
+4. Add recent examples/stats
+   └── Freshness signal
+
+5. Expand thin sections
+   └── Where competitors have more depth
+
+These alone can push from #7 → #3
+```
+
+### Refresh Timing Guidelines
+
+| Content Type | Refresh Frequency | Full Review |
+|--------------|-------------------|-------------|
+| **Pillar pages** | Quarterly | Annually |
+| **How-to guides** | Every 6 months | When tech changes |
+| **Product comparisons** | Quarterly | When products update |
+| **News/trends** | Monthly | Archive when stale |
+| **Evergreen fundamentals** | Annually | Every 2 years |
+| **Tool/resource lists** | Quarterly | Semi-annually |
+
+### Measuring Refresh Success
+
+| Metric | Timeframe | Success Indicator |
+|--------|-----------|-------------------|
+| **Rankings** | 2-4 weeks | Position improved 3+ spots |
+| **Traffic** | 4-8 weeks | Organic traffic up 25%+ |
+| **CTR** | 2-4 weeks | Click rate improved |
+| **Engagement** | 4 weeks | Bounce rate down, time up |
+| **Conversions** | 4-8 weeks | Goal completions increased |
+
+### Anti-Patterns
+
+- **Date manipulation** — Changing date without real updates
+- **Shallow updates** — Adding a paragraph to "refresh" a post
+- **Ignoring SERP changes** — Not checking what's ranking now
+- **Preserving weak content** — Every word doesn't need to stay
+- **Breaking URLs** — Changing URLs loses link equity
+- **Refresh and forget** — Not measuring if refresh worked
+- **Over-consolidating** — Merging posts that target different intents
+- **Abandoning winners** — Not protecting content that's performing
+- **Random refresh** — No prioritization strategy
+- **One-time audits** — Should be continuous process
