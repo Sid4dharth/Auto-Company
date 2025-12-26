@@ -81,3 +81,86 @@ wsl -d Ubuntu bash -lc 'command -v codex'
 - `CycleTimeoutSeconds`：`900-1800`
 - `LoopInterval`：`30-60`
 
+脚本定位说明：
+- 所有脚本实现位于 `scripts/windows/`、`scripts/core/`、`scripts/wsl/`、`scripts/macos/`
+- 日常执行入口也统一使用 `scripts/` 下脚本
+- 如需维护逻辑，请直接修改 `scripts/` 下对应实现文件
+
+## 5. 可选：登录后自启
+
+默认不启用。需要时执行：
+
+```powershell
+.\scripts\windows\enable-autostart-win.ps1
+.\scripts\windows\autostart-status-win.ps1
+```
+
+关闭：
+
+```powershell
+.\scripts\windows\disable-autostart-win.ps1
+```
+
+自启任务名：`AutoCompany-WSL-Start`（触发器：At logon）。
+若提示 `Access is denied`，请使用管理员 PowerShell 重新执行。
+
+## 6. Chat-first 模式（只和 Codex 对话）
+
+如果你不想手动执行命令，可直接在 Windows 里和 Codex 对话，让 Codex 代你操作。
+
+底层链路：
+
+`scripts/windows/start-win.ps1` -> WSL `systemd --user` -> `scripts/core/auto-loop.sh`
+
+与手动命令的核心行为一致，差异只在入口方式。
+
+## 7. 常见问题
+
+### `bad interpreter: /bin/bash^M`
+
+- 原因：文件是 CRLF
+- 处理：
+
+```bash
+git config core.autocrlf false
+git config core.eol lf
+```
+
+### `codex: node not found`
+
+- 原因：WSL 中缺 Node/Codex
+- 处理：回到第 1 步重新安装
+
+### `systemctl --user` 不可用
+
+- 原因：WSL 未启用 systemd 或会话未正确初始化
+- 处理：
+  - 先确认 `ps -p 1 -o comm=` 是 `systemd`
+  - 再验证 `systemctl --user --version`
+  - 必要时重开 WSL 会话后重试
+
+### `status` 显示 Codex bin 在 `/mnt/c/...`
+
+- 原因：PATH 先命中 Windows 侧 codex
+- 影响：版本和行为可能与 WSL 本地终端不一致
+- 处理：在 WSL 内安装并优先使用本地 Codex（`/home/<user>/...`）
+
+### `clone/` 在 WSL 下 `git status` 显示大量修改
+
+- 原因：`clone/` 作为留档目录，可能受 CRLF/LF 差异影响。
+- 结论：如果你只在 `clone_win/` 开发，这些状态可忽略。
+- 要求：
+  - 不在 `clone/` 提交代码。
+  - 只在 `clone_win/` 目录开发和提交。
+
+### guardian 启动失败
+
+- 现象：`scripts/windows/start-win.ps1` 提示 daemon 已启动，但 guardian 启动失败并返回非零
+- 处理：先执行 `.\scripts\windows\status-win.ps1` 确认服务状态，再手动执行 `.\scripts\windows\awake-guardian-win.ps1 -Action start`
+
+### 自启脚本提示 `Access is denied`
+
+- 原因：当前 PowerShell 权限不足以写入计划任务
+- 处理：使用管理员 PowerShell 执行：
+  - `.\scripts\windows\enable-autostart-win.ps1`
+  - `.\scripts\windows\disable-autostart-win.ps1`
