@@ -278,3 +278,142 @@ P.S. - If neither of these are relevant, just let me know and I'll stop botherin
 | Save money | Save time |
 | Increase efficiency | Reduce risk |
 | Scale faster | Improve quality |
+| Better metrics | Better team morale |
+| Revenue growth | Customer retention |
+
+---
+
+## 📨 Email #4: The Social Proof
+
+**Send**: Day 6 at 10:30 AM
+**Goal**: Show peer validation
+**Subject**: "[Mutual connection] suggested I reach out" OR "How [competitor] is handling [challenge]"
+
+### Email Body
+
+```
+[First Name],
+
+Quick note—I was speaking with [name/title] at [similar company or competitor] last week about [challenge].
+
+They mentioned that [insight or approach they're taking], which made me think of our previous emails about [their company].
+
+Here's what [name] said after implementing [solution]:
+"[Direct quote with specific result]"
+
+Not sure if you're taking a similar approach at [their company], but figured it was worth sharing.
+
+Open to a quick call if you'd like to hear more about what's working in [their industry/role]?
+
+[Your Name]
+```
+
+---
+
+### Social Proof Frameworks
+
+**Option 1: Testimonial**
+```
+"[Solution] cut our [process] time by half. Paid for itself in 2 months."
+- [Name, Title, Company]
+```
+
+**Option 2: Industry Stat**
+```
+84% of [their industry] teams report [problem]. Those using [your solution] reduced that to 12%.
+```
+
+**Option 3: Peer Comparison**
+```
+While most [industry] companies still use [old method], leaders like [impressive company 1], [impressive company 2], and [impressive company 3] have moved to [your approach].
+```
+
+---
+
+## 📨 Email #5: The Resource Share
+
+**Send**: Day 8 at 3:00 PM
+**Goal**: Give value without asking for anything
+**Subject**: "Thought you might find this useful"
+
+### Email Body
+
+```
+[First Name],
+
+No ask here—just wanted to share something that might help:
+
+[Brief description of valuable resource]:
+[Link to guide/video/tool]
+
+We created this after hearing [their role]s consistently struggle with [pain point]. Lots of actionable tips even if you never use our product.
+
+Hope it's helpful!
+
+[Your Name]
+
+P.S. - If you do find it useful and want to chat about [main topic], I'm around.
+```
+
+---
+
+### Resource Ideas
+
+**Content Types**:
+- Industry benchmark report
+- How-to guide/checklist
+- Template or tool
+- Webinar recording
+- Calculator/ROI tool
+- Comparison guide
+- Research study
+
+**Example**:
+```
+I put together "The 2024 Sales Onboarding Playbook" after interviewing 50 VPs of Sales about what's working.
+
+Includes:
+✓ Onboarding timeline template
+✓ Training curriculum framework
+✓ Metrics to track
+✓ Tools comparison
+
+No forms, no gates—just helpful stuff: [link]
+```
+
+---
+
+## 📨 Email #6: The Direct Ask
+
+**Send**: Day 10 at 9:00 AM
+**Goal**: No games, direct meeting request
+**Subject**: "Let's cut to the chase"
+
+### Email Body
+
+```
+[First Name],
+
+I've sent a few emails about [main value prop], but let me be direct:
+
+I think we could help [their company] [achieve specific outcome] based on [specific observation about their situation].
+
+If you're open to it, I'd like to show you:
+1. [Specific thing #1 you'll show]
+2. [Specific thing #2 you'll show]
+3. [How others in their position use it]
+
+15 minutes. No pressure. Just showing you what's possible.
+
+How's [specific day/time]?
+
+[Your Name]
+[Phone number - make it easy]
+```
+
+---
+
+### Direct Ask Frameworks
+
+**Option 1: The Specific Time**
+```
