@@ -248,3 +248,128 @@ Supporting points: [List]
 - Issue 1: [e.g., Unclear Situation]
 - Issue 2: [e.g., Jumps to Answer without setup]
 - Issue 3: [e.g., Weak Complication]
+
+## Optimized SCQA
+
+### S - Situation (Improved)
+[Reframe clearer background based on article info]
+
+### C - Complication (Improved)
+[Strengthen conflict, increase urgency]
+
+### Q - Question (Improved)
+[Clarify core question, focus discussion]
+
+### A - Answer (Improved)
+[Structure answer, enhance persuasiveness]
+
+## Improvement Impact
+Before: [Unclear in original]
+After: [Clearer after optimization]
+```
+
+### Method 3: Comparative Analysis (Multiple Articles)
+
+```markdown
+# SCQA Comparison: Topic [X]
+
+## Article 1
+S: [Background]
+C: [Conflict]
+Q: [Question]
+A: [Answer]
+
+## Article 2
+S: [Background]
+C: [Conflict]
+Q: [Question]
+A: [Answer]
+
+## Cross-Analysis
+
+### S Differences
+- Shared understanding: [What both acknowledge]
+- Divergence: [Different perspectives]
+
+### C Differences
+- Article 1 emphasizes: [X problem]
+- Article 2 emphasizes: [Y problem]
+- Insight: Different C leads to different problem framing
+
+### Q Differences
+- Article 1 tries to answer: [...]
+- Article 2 tries to answer: [...]
+- Insight: Question setting determines answer space
+
+### A Differences
+- Solution comparison: [Similarities/differences]
+- Complementarity: [Combinable parts]
+- Conflicts: [Contradictions]
+```
+
+## SCQA Variations
+
+### 1. Standard (S-C-Q-A)
+```
+Stable background → Problem emerges → Question posed → Answer given
+```
+Use for: Problem-oriented articles
+
+### 2. Direct Lead (A-S-C-Q-A)
+```
+State conclusion first → Explain background → Problem → Question → Detailed answer
+```
+Use for: Executive summaries, fast-paced reading
+
+### 3. Suspense (C-S-Q-A)
+```
+Throw out conflict → Explain background → Pose question → Provide answer
+```
+Use for: Attention-grabbing, marketing articles
+
+### 4. Exploratory (S-C-Q-A-Q-A)
+```
+Background → Problem 1 → Answer 1 → Deeper problem 2 → Answer 2
+```
+Use for: Complex problems requiring layered depth
+
+## Practical Example
+
+### Example: Startup Article
+
+**Article Title**: "Why Most Startups Fail"
+
+```markdown
+## SCQA Deconstruction
+
+### S - Situation
+Startup ecosystem has flourished over past 20 years.
+Venture capital abundant, tech infrastructure mature,
+barriers to entry dramatically lowered. Hundreds of thousands of new startups form annually.
+
+### C - Complication
+However, statistics show:
+- 90% of startups fail within 3 years
+- Failure rates rising, not declining
+- Even well-funded companies struggle
+
+"Why are failure rates higher today when conditions are better?"
+
+### Q - Question
+Implicit core question:
+"What fundamental factors cause startup failure?
+How to identify and avoid these fatal mistakes?"
+
+### A - Answer
+Article identifies three fatal issues:
+1. Solving fake needs (42% of failures)
+2. Running out of cash (29%)
+3. Team problems (23%)
+
+With corresponding solutions...
+
+## Assessment
+
+Logical completeness:
+✅ S→C: Sharp contrast, creates suspense
+✅ C→Q: Naturally leads to "why"
