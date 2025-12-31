@@ -251,3 +251,129 @@ Proving community ROI
       Team cost +
       Platform cost +
       Program cost +
+      Event cost
+    
+    ROI = (Value - Cost) / Cost
+    ```
+    
+    ### 4. Dashboard Metrics
+    
+    | Category | Metric | Target |
+    |----------|--------|--------|
+    | Acquisition | Community-attributed signups | X/month |
+    | Retention | Member vs non-member retention | +20% |
+    | Support | Questions answered in community | 30% of volume |
+    | Content | Community content views | Growing |
+    | Advocacy | Net Promoter Score (members) | >60 |
+    
+
+---
+  #### **Name**
+Community Content Engine
+  #### **Description**
+User-generated content for growth
+  #### **When To Use**
+Leveraging community for content
+  #### **Implementation**
+    ## Community Content Strategy
+    
+    ### 1. Content Types from Community
+    
+    **User-Generated Content**
+    - Tutorials and how-tos
+    - Use case showcases
+    - Tips and tricks
+    - Templates and examples
+    
+    **Collaborative Content**
+    - Community + company co-creation
+    - Expert interviews
+    - Panel discussions
+    - Community spotlights
+    
+    **Discussion Content**
+    - Forum threads (SEO value)
+    - Q&A (searchable knowledge)
+    - Best practice threads
+    - Feature discussions
+    
+    ### 2. Content Incentive Programs
+    
+    | Program | Incentive | Content Type |
+    |---------|-----------|--------------|
+    | Write for us | Payment + exposure | Long-form articles |
+    | Tutorial bounty | Swag + credit | Tutorials |
+    | Template contest | Prize + feature | Templates |
+    | Share your story | Recognition | Case studies |
+    
+    ### 3. Content Quality Framework
+    
+    **Tier 1: Curated (High Bar)**
+    - Edited and reviewed
+    - Published on main channels
+    - Company branding
+    
+    **Tier 2: Featured (Medium Bar)**
+    - Light review
+    - Community showcase
+    - Author credit
+    
+    **Tier 3: Open (Low Bar)**
+    - Community guidelines only
+    - Forum/discussion format
+    - Peer moderation
+    
+    ### 4. SEO Value Extraction
+    
+    ```
+    Community content for SEO:
+    1. Q&A threads → FAQ pages
+    2. Discussion highlights → Blog posts
+    3. Tutorial collection → Resource hub
+    4. Problem-solution pairs → Landing pages
+    ```
+    
+    ### 5. Content Metrics
+    
+    | Metric | Definition | Target |
+    |--------|------------|--------|
+    | UGC volume | Pieces created/month | Growing |
+    | Content quality | Engagement rate | >5% |
+    | SEO traffic | Traffic from community content | Growing |
+    | Conversion | Content → Signup rate | >1% |
+    
+
+---
+  #### **Name**
+Community Platform Architecture
+  #### **Description**
+Choosing and structuring community tools
+  #### **When To Use**
+Setting up community infrastructure
+  #### **Implementation**
+    ## Platform Decision Framework
+    
+    ### 1. Platform Options
+    
+    | Platform Type | Examples | Best For |
+    |---------------|----------|----------|
+    | Forum-style | Discourse, Circle | Deep discussions |
+    | Chat-style | Discord, Slack | Real-time engagement |
+    | Q&A-style | Stack Overflow-like | Support/knowledge |
+    | Social-style | Custom, Tribe | Social networking |
+    | Hybrid | Bettermode, Khoros | Multiple use cases |
+    
+    ### 2. Selection Criteria
+    
+    **Community Needs**
+    - Real-time vs async preference
+    - Content longevity importance
+    - Structure vs spontaneity
+    - Technical vs general audience
+    
+    **Business Needs**
+    - SSO/integration requirements
+    - Analytics needs
+    - Moderation scale
+    - Budget constraints
+    
