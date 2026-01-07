@@ -274,3 +274,140 @@ spec:
             name: app-secrets
       volumeMounts:
         # Secrets as files
+        - name: secrets
+          mountPath: /etc/secrets
+          readOnly: true
+  volumes:
+    - name: secrets
+      secret:
+        secretName: app-secrets
+```
+
+### Sealed Secrets (GitOps-safe)
+
+```bash
+# Install kubeseal
+brew install kubeseal
+
+# Create sealed secret
+kubectl create secret generic app-secrets \
+  --from-literal=jwt-secret='...' \
+  --dry-run=client -o yaml | \
+  kubeseal --format yaml > sealed-secret.yaml
+
+# The sealed secret can be safely committed to git
+```
+
+---
+
+## Secret Rotation
+
+### Rotation Strategy
+
+```typescript
+interface SecretRotation {
+  // Two-phase rotation
+  steps: [
+    'generate_new_secret',    // Create new secret
+    'deploy_with_both',       // Accept both old and new
+    'verify_new_works',       // Test new secret
+    'deprecate_old',          // Mark old for removal
+    'remove_old'              // Delete old secret
+  ];
+  
+  // Timing
+  rotationPeriod: '90 days';
+  gracePeriod: '7 days';
+}
+```
+
+### JWT Secret Rotation
+
+```typescript
+interface JWTConfig {
+  currentSecret: string;
+  previousSecret?: string;  // For graceful rotation
+  keyId: string;            // For key identification
+}
+
+function verifyToken(token: string, config: JWTConfig): JWTPayload {
+  const decoded = jwt.decode(token, { complete: true });
+  
+  // Try current secret first
+  try {
+    return jwt.verify(token, config.currentSecret) as JWTPayload;
+  } catch (err) {
+    // Fall back to previous secret during rotation
+    if (config.previousSecret) {
+      return jwt.verify(token, config.previousSecret) as JWTPayload;
+    }
+    throw err;
+  }
+}
+
+function signToken(payload: JWTPayload, config: JWTConfig): string {
+  return jwt.sign(payload, config.currentSecret, {
+    keyid: config.keyId  // Include key ID in header
+  });
+}
+```
+
+### API Key Rotation
+
+```typescript
+// API key rotation workflow
+async function rotateAPIKey(userId: string): Promise<void> {
+  const user = await User.findById(userId);
+  
+  // 1. Generate new key
+  const newKey = generateAPIKey();
+  const newKeyHash = hashAPIKey(newKey);
+  
+  // 2. Add new key (keep old active)
+  await APIKey.create({
+    userId,
+    keyHash: newKeyHash,
+    prefix: newKey.substring(0, 8),
+    createdAt: new Date(),
+    expiresAt: null  // New key active
+  });
+  
+  // 3. Notify user of new key
+  await notifyUser(userId, `New API key: ${newKey}`);
+  
+  // 4. Mark old key for expiration
+  await APIKey.updateMany(
+    { userId, keyHash: { $ne: newKeyHash } },
+    { expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) }  // 7 days
+  );
+  
+  // 5. Scheduled job removes expired keys
+}
+```
+
+---
+
+## CI/CD Secrets
+
+### GitHub Actions
+
+```yaml
+# Use encrypted secrets
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        run: npm run deploy
+```
+
+### GitLab CI
+
+```yaml
+# Use CI/CD variables (masked + protected)
+deploy:
+  script:
+    - echo $DATABASE_URL
