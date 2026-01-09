@@ -322,3 +322,164 @@ Beyond OWASP, review Python code for these patterns:
 
 | Pattern | Risk | Fix |
 |---------|------|-----|
+| `dangerouslySetInnerHTML` | XSS | Use text content or sanitize with DOMPurify |
+| `javascript:` in href | XSS | Validate URLs, allow only `https:` |
+| `window.location = userInput` | Open redirect | Validate against allowlist |
+| Storing tokens in localStorage | Token theft via XSS | Use httpOnly cookies |
+| Inline event handlers from data | XSS | Use React event handlers |
+| `eval()` or `Function()` | Code execution | Remove entirely |
+| Rendering user HTML | XSS | Use a sanitization library |
+
+**React code review:**
+```tsx
+// BAD: XSS via dangerouslySetInnerHTML
+<div dangerouslySetInnerHTML={{ __html: userBio }} />
+
+// GOOD: Sanitize first, or use text content
+import DOMPurify from "dompurify";
+<div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(userBio) }} />
+
+// BETTER: Use text content when HTML is not needed
+<p>{userBio}</p>
+
+// BAD: javascript: URL
+<a href={userLink}>Click</a>  // userLink could be "javascript:alert(1)"
+
+// GOOD: Validate protocol
+const safeHref = /^https?:\/\//.test(userLink) ? userLink : "#";
+<a href={safeHref}>Click</a>
+```
+
+### Severity Classification
+
+Classify each finding by severity for prioritization:
+
+| Severity | Description | Examples | SLA |
+|----------|-------------|----------|-----|
+| **Critical** | Exploitable remotely, no auth needed, data breach | SQL injection, RCE, auth bypass | Block merge, fix immediately |
+| **High** | Exploitable with auth, privilege escalation | IDOR, broken access control, XSS (stored) | Block merge, fix before release |
+| **Medium** | Requires specific conditions to exploit | CSRF, XSS (reflected), open redirect | Fix within sprint |
+| **Low** | Defense-in-depth, informational | Missing headers, verbose errors | Fix when convenient |
+| **Info** | Best practice recommendations | Dependency updates, code style | Track in backlog |
+
+### Finding Report Format
+
+When reporting security findings, use this format for consistency:
+
+```markdown
+## Security Finding: [Title]
+
+**Severity:** Critical | High | Medium | Low | Info
+**Category:** OWASP A01-A10 or custom category
+**File:** path/to/file.py:42
+**CWE:** CWE-89 (if applicable)
+
+### Description
+Brief description of the vulnerability and its impact.
+
+### Vulnerable Code
+```python
+# The problematic code
+vulnerable_function(user_input)
+```
+
+### Recommended Fix
+```python
+# The secure alternative
+safe_function(sanitize(user_input))
+```
+
+### Impact
+What an attacker could achieve by exploiting this vulnerability.
+
+### References
+- Link to relevant OWASP page
+- Link to relevant CWE entry
+```
+
+### Automated Scanning
+
+Use `scripts/security-scan.py` to perform AST-based scanning for common vulnerability patterns in Python code. The script scans for:
+- `eval()` / `exec()` / `compile()` calls
+- `subprocess` with `shell=True`
+- `pickle.loads()` on potentially untrusted data
+- Raw SQL string construction
+- `yaml.load()` without `Loader=SafeLoader`
+- Hardcoded secret patterns (API keys, passwords)
+- Weak hash functions (MD5, SHA1 for passwords)
+
+Run: `python scripts/security-scan.py --path ./app --output-dir ./security-results`
+
+**Dependency scanning (run separately):**
+```bash
+# Python dependencies
+pip-audit --requirement requirements.txt --output json > dep-audit.json
+
+# npm dependencies
+npm audit --json > npm-audit.json
+```
+
+## Examples
+
+### Example Review Comment (Critical)
+
+> **SECURITY: SQL Injection (Critical, OWASP A03)**
+>
+> File: `app/repositories/user_repository.py:47`
+>
+> ```python
+> query = f"SELECT * FROM users WHERE name LIKE '%{search_term}%'"
+> ```
+>
+> This constructs a raw SQL query with string interpolation, allowing SQL injection.
+> An attacker could input `'; DROP TABLE users; --` to destroy data.
+>
+> **Fix:** Use SQLAlchemy ORM filtering:
+> ```python
+> users = db.query(User).filter(User.name.ilike(f"%{search_term}%")).all()
+> ```
+
+### Example Review Comment (Medium)
+
+> **SECURITY: Missing Rate Limiting (Medium, OWASP A04)**
+>
+> File: `app/routes/auth.py:12`
+>
+> The `/auth/login` endpoint has no rate limiting. An attacker could perform brute-force
+> password attacks at unlimited speed.
+>
+> **Fix:** Add rate limiting middleware:
+> ```python
+> from slowapi import Limiter
+> limiter = Limiter(key_func=get_remote_address)
+>
+> @router.post("/login")
+> @limiter.limit("5/minute")
+> async def login(request: Request, ...):
+> ```
+
+### Output File
+
+Write security findings to `security-review.md`:
+
+```markdown
+# Security Review: [Feature/PR Name]
+
+## Summary
+- Critical: 0 | High: 1 | Medium: 2 | Low: 1
+
+## Findings
+
+### [CRITICAL] SQL Injection in user search
+- **File:** app/routes/users.py:45
+- **OWASP:** A03 Injection
+- **Description:** Raw SQL with string interpolation
+- **Recommendation:** Use SQLAlchemy ORM filtering
+
+### [HIGH] Missing authorization check
+...
+
+## Passed Checks
+- No hardcoded secrets found
+- Dependencies up to date
+```
