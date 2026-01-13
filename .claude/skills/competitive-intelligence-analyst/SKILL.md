@@ -264,3 +264,136 @@ Set up ongoing competitive monitoring:
 [Same format]
 
 ### Indirect Competitors
+- [Alternative solution 1] - [Why it's a threat]
+- [Alternative solution 2] - [Why it's a threat]
+
+## Feature Comparison
+
+| Feature | You | Comp A | Comp B | Comp C |
+|---------|-----|--------|--------|--------|
+| [Feature 1] | [Y/N/Partial] | [Y/N/P] | [Y/N/P] | [Y/N/P] |
+| [Feature 2] | [Y/N/Partial] | [Y/N/P] | [Y/N/P] | [Y/N/P] |
+| [Feature 3] | [Y/N/Partial] | [Y/N/P] | [Y/N/P] | [Y/N/P] |
+
+**You're Ahead On:**
+- [Feature/capability]
+- [Feature/capability]
+
+**You're Behind On:**
+- [Feature/capability] - [Priority: High/Med/Low]
+- [Feature/capability] - [Priority: High/Med/Low]
+
+## Pricing Landscape
+
+| Tier | You | Comp A | Comp B | Comp C | Market Position |
+|------|-----|--------|--------|--------|-----------------|
+| Entry | $X | $X | $X | $X | [Above/Below/At market] |
+| Pro | $X | $X | $X | $X | [Above/Below/At market] |
+
+**Pricing Insights:**
+- [Key insight about pricing]
+- [Opportunity or threat]
+
+## Positioning Analysis
+
+| Competitor | Position | Crowded? | Your Counter |
+|------------|----------|----------|--------------|
+| Comp A | "[Their position]" | Y/N | [How you differ] |
+| Comp B | "[Their position]" | Y/N | [How you differ] |
+
+**Recommended Positioning:**
+> "[Your unique positioning statement that avoids crowded positions]"
+
+## Market Gaps & Opportunities
+
+### Gap 1: [Gap Name]
+- **What:** [Description of gap]
+- **Evidence:** [How you know this is a gap]
+- **Opportunity:** [How to exploit it]
+- **Effort:** [High/Med/Low]
+- **Impact:** [High/Med/Low]
+
+### Gap 2: [Gap Name]
+[Same format]
+
+## Win/Loss Insights
+
+**Recent Wins:**
+- [Deal] vs [Competitor] - Won because: [Reason]
+- [Deal] vs [Competitor] - Won because: [Reason]
+
+**Recent Losses:**
+- [Deal] vs [Competitor] - Lost because: [Reason]
+- [Deal] vs [Competitor] - Lost because: [Reason]
+
+**Patterns:**
+- We win when: [Pattern]
+- We lose when: [Pattern]
+
+## Recommended Actions
+
+### Immediate (This Week)
+- [ ] [Action to take]
+- [ ] [Action to take]
+
+### Short-Term (30 Days)
+- [ ] [Action to take]
+- [ ] [Action to take]
+
+### Long-Term (90 Days)
+- [ ] [Strategic move]
+- [ ] [Strategic move]
+
+## Monitoring Setup
+
+**Tracking:**
+- [ ] Google Alerts for [competitor names]
+- [ ] [Tool] for [purpose]
+
+**Review Cadence:**
+- Weekly: [What to check]
+- Monthly: [What to review]
+- Quarterly: [Full refresh]
+```
+
+## Competitive Strategy Options
+
+**Ways to Compete:**
+
+| Strategy | When to Use | Example |
+|----------|-------------|---------|
+| **Better** | Have real advantage | Faster, more reliable |
+| **Cheaper** | Can sustain lower cost | Race to bottom - careful |
+| **Niche** | Underserved segment | "CRM for dog groomers" |
+| **Different** | Unique approach | "The anti-[category]" |
+| **Easier** | Complexity is pain | "1-click setup" |
+| **Faster** | Speed matters | "Results in 24 hours" |
+| **Personal** | Big players are cold | "Indie, you talk to founder" |
+
+**Best for Indies:** Niche, Different, Easier, Personal (avoid Better/Cheaper wars with funded competitors)
+
+## Integration with Other Skills
+
+| Skill | How It Works Together |
+|-------|----------------------|
+| `offer-architect` | Differentiate your offer based on gaps |
+| `pricing-strategist` | Price relative to market |
+| `lead-channel-optimizer` | Find channels competitors ignore |
+| `copywriter` | Write positioning/messaging |
+| `strategy-expert` | Overall competitive strategy |
+
+## Common Mistakes
+
+1. **Copying competitors:** Being slightly better isn't a strategy
+2. **Ignoring indirect competitors:** Alternative solutions matter
+3. **Feature wars:** Adding features to match is a losing game
+4. **No monitoring:** Competitors change, you should know
+5. **Obsessing too much:** Customers > competitors
+6. **Competing on price:** Race to bottom, especially vs funded
+
+## When to Route Elsewhere
+
+- If you need to **differentiate your offer** → `offer-architect`
+- If you need **pricing strategy** → `pricing-strategist`
+- If you need **market positioning copy** → `copywriter`
+- If you're **stuck on strategy** → `execution-accelerator`
