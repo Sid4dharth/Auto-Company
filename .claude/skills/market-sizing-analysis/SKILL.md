@@ -299,3 +299,153 @@ Cross-check using multiple methods.
 **TAM Calculation:**
 
 ```
+TAM = Total Target Companies × Average ACV × (1 + Expansion Rate)
+```
+
+### Marketplace Markets
+
+**Key Metrics:**
+
+- Gross Merchandise Value (GMV) of category
+- Take rate (% of GMV you capture)
+- Total transactions or users
+
+**TAM Calculation:**
+
+```
+TAM = Total Category GMV × Expected Take Rate
+```
+
+### Consumer Markets
+
+**Key Metrics:**
+
+- Total addressable users/households
+- Average revenue per user (ARPU)
+- Engagement frequency
+
+**TAM Calculation:**
+
+```
+TAM = Total Users × ARPU × Purchase Frequency per Year
+```
+
+### B2B Services
+
+**Key Metrics:**
+
+- Number of target companies by size/industry
+- Average project value or retainer
+- Typical buying frequency
+
+**TAM Calculation:**
+
+```
+TAM = Total Target Companies × Average Deal Size × Deals per Year
+```
+
+## Presenting Market Sizing
+
+### For Investors
+
+**Structure:**
+
+1. Market definition and problem scope
+2. TAM/SAM/SOM with methodology
+3. Data sources and assumptions
+4. Growth projections and drivers
+5. Competitive landscape context
+
+**Key Points:**
+
+- Lead with bottom-up calculation (most credible)
+- Show triangulation with top-down
+- Explain conservative assumptions
+- Link to revenue projections
+- Highlight market growth rate
+
+### For Strategy
+
+**Structure:**
+
+1. Addressable customer segments
+2. Prioritization by opportunity size
+3. Entry strategy by segment
+4. Expected penetration timeline
+5. Resource requirements
+
+**Key Points:**
+
+- Focus on SAM and SOM
+- Show segment-level detail
+- Connect to go-to-market plan
+- Identify expansion opportunities
+- Discuss competitive positioning
+
+## Common Mistakes to Avoid
+
+**Mistake 1: Confusing TAM with SAM**
+
+- Don't claim entire market as addressable
+- Apply realistic product/geographic constraints
+- Be honest about serviceable market
+
+**Mistake 2: Overly Aggressive SOM**
+
+- New entrants rarely capture > 5% in 5 years
+- Account for competition and resources
+- Show realistic ramp timeline
+
+**Mistake 3: Using Only Top-Down**
+
+- Investors prefer bottom-up validation
+- Top-down alone lacks credibility
+- Always triangulate with multiple methods
+
+**Mistake 4: Cherry-Picking Data**
+
+- Use consistent, recent data sources
+- Don't mix methodologies inappropriately
+- Document all assumptions clearly
+
+**Mistake 5: Ignoring Market Dynamics**
+
+- Account for market growth/decline
+- Consider competitive intensity
+- Factor in switching costs and barriers
+
+## Additional Resources
+
+### Reference Files
+
+For detailed methodologies and frameworks:
+
+- **`references/methodology-deep-dive.md`** - Comprehensive guide to each methodology with step-by-step worksheets
+- **`references/data-sources.md`** - Curated list of market research sources, databases, and tools
+- **`references/industry-templates.md`** - Specific templates for SaaS, marketplace, consumer, B2B, and fintech markets
+
+### Example Files
+
+Working examples with complete calculations:
+
+- **`examples/saas-market-sizing.md`** - Complete TAM/SAM/SOM for a B2B SaaS product
+- **`examples/marketplace-sizing.md`** - Marketplace platform market opportunity calculation
+- **`examples/value-theory-example.md`** - Value-based market sizing for disruptive innovation
+
+Use these examples as templates for your own market sizing analysis. Each includes real numbers, data sources, and assumptions documented clearly.
+
+## Quick Start
+
+To perform market sizing analysis:
+
+1. **Define the market** - Problem, customers, category, geography
+2. **Choose methodology** - Bottom-up (preferred) or top-down + triangulation
+3. **Gather data** - Industry reports, customer data, competitive intelligence
+4. **Calculate TAM** - Apply methodology formula
+5. **Narrow to SAM** - Apply product, geographic, segment filters
+6. **Estimate SOM** - 2-5% realistic capture rate
+7. **Validate** - Cross-check with alternative methods
+8. **Document** - Show methodology, sources, assumptions
+9. **Present** - Structure for audience (investors, strategy, operations)
+
+For detailed step-by-step guidance on each methodology, reference the files in `references/` directory. For complete worked examples, see `examples/` directory.
