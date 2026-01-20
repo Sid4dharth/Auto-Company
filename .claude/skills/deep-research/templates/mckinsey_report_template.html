@@ -294,3 +294,150 @@
         .tooltip-claim-label {
             font-weight: 600;
             color: #003d5c;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .evidence-chain {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #d1d5db;
+        }
+
+        .evidence-chain-label {
+            font-weight: 600;
+            color: #003d5c;
+            font-size: 11px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .evidence-step {
+            padding: 6px;
+            background: #f8f9fa;
+            margin-bottom: 4px;
+            font-size: 11px;
+            border-left: 2px solid #d1d5db;
+            padding-left: 8px;
+        }
+
+        .bibliography {
+            background: #f8f9fa;
+            padding: 30px;
+            margin-top: 40px;
+            border-left: 4px solid #003d5c;
+        }
+
+        .bibliography-content {
+            background: #f8f9fa;
+            padding: 20px 0;
+        }
+
+        .bib-entry {
+            margin-bottom: 18px;
+            padding-left: 50px;
+            text-indent: -50px;
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .bib-number {
+            color: #003d5c;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .bib-entry a {
+            color: #003d5c;
+            word-wrap: break-word;
+            text-decoration: none;
+        }
+
+        .bib-entry a:hover {
+            text-decoration: underline;
+        }
+
+        .compact-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .compact-list li {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .info-box {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .info-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #003d5c;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .highlight-stat {
+            font-weight: 700;
+            color: #003d5c;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        @media print {
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .findings-grid {
+                grid-template-columns: 1fr;
+            }
+            .compact-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{TITLE}}</h1>
+            <div class="header-meta">
+                <span>{{DATE}}</span>
+                <span>•</span>
+                <span>{{SOURCE_COUNT}} Sources</span>
+            </div>
+        </div>
+
+        {{METRICS_DASHBOARD}}
+
+        <div class="content">
+            {{CONTENT}}
+
+            <div class="bibliography">
+                <div class="section-title">Bibliography</div>
+                {{BIBLIOGRAPHY}}
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
