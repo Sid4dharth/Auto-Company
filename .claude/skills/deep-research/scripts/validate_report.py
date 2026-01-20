@@ -234,3 +234,121 @@ class ReportValidator:
             (r'\[Sections \d+-\d+', 'Pattern "[Sections X-Y"'),
             (r'Additional sections', 'Phrase "Additional sections"'),
             (r'comprehensive.*word document that continues', 'Pattern "comprehensive...document that continues"'),
+        ]
+
+        for pattern_re, description in truncation_patterns:
+            if re.search(pattern_re, self.content, re.IGNORECASE):
+                self.errors.append(f"⚠️ CRITICAL: Content truncation detected: {description}")
+                self.errors.append(f"   Report is INCOMPLETE and UNUSABLE - regenerate with progressive assembly")
+                return False
+
+        return True
+
+    def _check_word_count(self) -> bool:
+        """Check overall report length"""
+        word_count = len(self.content.split())
+
+        if word_count < 500:
+            self.warnings.append(f"Report is very short: {word_count} words (consider expanding)")
+        # No upper limit warning - progressive assembly supports unlimited lengths
+
+        return True
+
+    def _check_source_count(self) -> bool:
+        """Check minimum source count"""
+        pattern = r'## Bibliography(.*?)(?=##|\Z)'
+        match = re.search(pattern, self.content, re.DOTALL | re.IGNORECASE)
+
+        if not match:
+            return True  # Already caught in bibliography check
+
+        bib_section = match.group(1)
+        bib_entries = re.findall(r'^\[(\d+)\]', bib_section, re.MULTILINE)
+
+        source_count = len(set(bib_entries))
+
+        if source_count < 10:
+            self.warnings.append(f"Only {source_count} sources (recommended: ≥10)")
+
+        return True
+
+    def _check_broken_references(self) -> bool:
+        """Check for broken internal references"""
+        # Find all markdown links [text](./path)
+        internal_links = re.findall(r'\[.*?\]\((\.\/.*?)\)', self.content)
+
+        broken = []
+        for link in internal_links:
+            # Remove anchor if present
+            link_path = link.split('#')[0]
+            full_path = self.report_path.parent / link_path
+
+            if not full_path.exists():
+                broken.append(link)
+
+        if broken:
+            self.errors.append(f"Broken internal links: {', '.join(broken)}")
+            return False
+
+        return True
+
+    def _print_summary(self):
+        """Print validation summary"""
+        print(f"\n{'='*60}")
+        print(f"VALIDATION SUMMARY")
+        print(f"{'='*60}\n")
+
+        if self.errors:
+            print(f"❌ ERRORS ({len(self.errors)}):")
+            for error in self.errors:
+                print(f"   • {error}")
+            print()
+
+        if self.warnings:
+            print(f"⚠️  WARNINGS ({len(self.warnings)}):")
+            for warning in self.warnings:
+                print(f"   • {warning}")
+            print()
+
+        if not self.errors and not self.warnings:
+            print("✅ ALL CHECKS PASSED - Report meets quality standards!\n")
+        elif not self.errors:
+            print("✅ VALIDATION PASSED (with warnings)\n")
+        else:
+            print("❌ VALIDATION FAILED - Please fix errors before delivery\n")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Validate research report quality",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python validate_report.py --report report.md
+  python validate_report.py -r ~/.claude/research_output/research_report_20251104_153045.md
+        """
+    )
+
+    parser.add_argument(
+        '--report', '-r',
+        type=str,
+        required=True,
+        help='Path to research report markdown file'
+    )
+
+    args = parser.parse_args()
+
+    report_path = Path(args.report)
+
+    if not report_path.exists():
+        print(f"❌ ERROR: Report file not found: {report_path}")
+        sys.exit(1)
+
+    validator = ReportValidator(report_path)
+    passed = validator.validate()
+
+    sys.exit(0 if passed else 1)
+
+
+if __name__ == '__main__':
+    main()
