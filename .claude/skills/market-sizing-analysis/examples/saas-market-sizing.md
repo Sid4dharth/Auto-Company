@@ -250,3 +250,128 @@ Total:                          $8.5M ARR (888 customers)
 ### SAM Evolution (5-Year Forecast)
 
 | Year | SAM   | Growth | Notes                      |
+| ---- | ----- | ------ | -------------------------- |
+| 2026 | $169M | -      | Starting point             |
+| 2027 | $211M | +25%   | AI adoption accelerating   |
+| 2028 | $264M | +25%   | Mainstream adoption begins |
+| 2029 | $330M | +25%   | AI becomes table stakes    |
+| 2030 | $413M | +25%   | Market maturity            |
+
+**Growing SAM Impact:**
+
+- Year 5 SOM of 5% applied to $413M SAM = $20.6M potential
+- Provides headroom for growth
+- Supports expansion beyond initial 5% share
+
+## Competitive Context
+
+### Market Share Distribution
+
+**Current Leaders:**
+
+- Klaviyo: ~46% share
+- Mailchimp: ~35% share
+- Others: ~19% share (fragmented)
+
+**Market Dynamics:**
+
+- Two dominant players
+- Long tail of smaller competitors
+- Opportunity in AI-differentiated positioning
+- Typical SaaS market consolidation pattern
+
+**Implications for SOM:**
+
+- 5% share requires strong differentiation
+- AI capabilities could drive 10-15% share long-term
+- Acquisition potential if unable to reach scale
+
+## Investment Thesis Validation
+
+### Market Opportunity Score: ✅ Strong
+
+**Positives:**
+✅ Large market: $1.5B+ global TAM
+✅ Growing market: 12% CAGR, 25% for AI subset
+✅ Addressable: $169M SAM with clear path to customers
+✅ Achievable: $8.5M Year 5 ARR reasonable
+✅ Validation: Public companies prove market exists
+
+**Risks:**
+⚠️ Competition: Klaviyo and Mailchimp are strong
+⚠️ Switching costs: Customers invested in current tools
+⚠️ Market share: 5% requires excellent execution
+
+**Verdict:** Market opportunity supports venture-scale outcome ($100M+ exit possible)
+
+## Presentation to Investors
+
+### Slide 1: Market Opportunity Summary
+
+```
+AI-Powered Email Marketing for E-Commerce
+
+TAM: $1.5B Global, $539M North America
+SAM: $169M (AI-ready e-commerce companies)
+SOM: $8.5M ARR by Year 5 (5% market share)
+
+Market Growing 25% CAGR (AI subset)
+Validated by Klaviyo ($700M revenue)
+```
+
+### Slide 2: Bottom-Up Validation
+
+```
+Target: 105,000 E-Commerce Companies ($1M+ revenue)
+
+Segment Breakdown:
+• Small ($1M-$5M): 85,000 companies × $3,600 ACV
+• Mid-Market ($5M-$50M): 18,000 × $9,600
+• Enterprise ($50M+): 2,500 × $24,000
+
+Year 5: 888 customers, $8.5M ARR (5% market share)
+```
+
+### Slide 3: Market Validation
+
+```
+Top-Down: $171M SAM (Gartner + market filters)
+Bottom-Up: $169M SAM (<2% variance)
+
+Public Company Validation:
+• Klaviyo: $700M revenue (46% market share)
+• Mailchimp: $800M revenue (Intuit-owned)
+
+Demonstrates large, proven market
+```
+
+## Key Takeaways
+
+**Market Sizing Results:**
+
+- TAM: $1.5B globally, $539M North America
+- SAM: $169M (North America, AI-ready customers)
+- SOM: $4.2M (Year 3), $8.5M (Year 5)
+
+**Methodology:**
+
+- Bottom-up primary (most granular and credible)
+- Top-down validation (<2% variance on SAM)
+- Public company validation (Klaviyo, Mailchimp)
+
+**Investment Implications:**
+
+- Market supports venture-scale outcome
+- 5% market share achievable with strong execution
+- Growing market (25% CAGR) provides tailwinds
+- Competitive but differentiated positioning possible
+
+**Next Steps:**
+
+1. Validate pricing assumptions with customer research
+2. Refine segment prioritization based on GTM capacity
+3. Update SAM annually as market evolves
+4. Track Klaviyo/Mailchimp as competitive benchmarks
+5. Monitor AI adoption rates in e-commerce segment
+
+This bottom-up market sizing provides a defensible, data-driven foundation for business planning and fundraising.
