@@ -288,3 +288,148 @@ class PersonaFramework {
         {
           name: 'John (Executive)',
           percentage: '10%',
+          influence: 'Medium',
+          role: 'Budget approval'
+        }
+      ],
+      anti_personas: [
+        {
+          name: 'Enterprise IT Director',
+          reason: 'Not target market, different needs',
+          avoid: 'Marketing to large enterprise buyers'
+        }
+      ]
+    };
+  }
+
+  validatePersonas(personas) {
+    return {
+      coverage: personas.reduce((sum, p) => sum + p.percentage, 0),
+      primary_count: personas.filter(p => p.influence === 'High').length,
+      recommendations: [
+        'Personas cover 100% of target market',
+        'Focus on 2-3 primary personas',
+        'Plan for secondary use cases',
+        'Define clear anti-personas'
+      ]
+    };
+  }
+
+  createPersonaMap(personas) {
+    return {
+      influence_x_axis: 'Low → High',
+      adoption_y_axis: 'Slow → Fast',
+      sarah_vp: { influence: 'High', adoption: 'Fast' },
+      mike_lead: { influence: 'Very High', adoption: 'Very Fast' },
+      lisa_admin: { influence: 'Medium', adoption: 'Medium' },
+      john_executive: { influence: 'Very High', adoption: 'Slow' },
+      strategy: 'Focus on Mike (influencer), design for Sarah (buyer), support Lisa (user)'
+    };
+  }
+}
+```
+
+### 4. **Using Personas**
+
+```yaml
+Applying Personas to Product Decisions:
+
+---
+
+## Feature Prioritization
+
+Feature: Offline Mobile Access
+  Sarah's Need: Medium (works with wifi)
+  Mike's Need: Very High (field work, poor connectivity)
+  Lisa's Need: Low (office based)
+  Decision: PRIORITIZE (high-value user needs it)
+
+Feature: Advanced Reporting
+  Sarah's Need: Very High (executive visibility)
+  Mike's Need: Low (not his responsibility)
+  Lisa's Need: Medium (setup reporting)
+  Decision: PRIORITIZE (key buyer needs it)
+
+Feature: Bulk Import
+  Sarah's Need: Medium (initial setup)
+  Mike's Need: Low (day-to-day use)
+  Lisa's Need: Very High (admin task)
+  Decision: PRIORITIZE (admin enablement)
+
+---
+
+## Journey Mapping
+
+Sarah's Evaluation Journey:
+  1. Becomes aware (peer recommendation) → Email request
+  2. Reads reviews (G2, Capterra) → Schedule demo
+  3. Watches demo → Reviews case studies
+  4. Wants reference → Talks to 2 customers
+  5. Creates RFP → Evaluates pricing
+  6. Gets team input → Makes decision
+  → Timeline: 6-8 weeks
+
+Mike's Adoption Journey:
+  1. Learns about tool → Demo from Sarah
+  2. Gets access → Starts with 1 project
+  3. Learns through hands-on → Gradually adopts
+  4. Becomes power user → Recommends to others
+  → Timeline: 4 weeks
+
+---
+
+## Marketing Message by Persona
+
+For Sarah (VP Product):
+  Headline: "Increase project delivery speed by 30%"
+  Focus: ROI, team productivity, visibility
+  Channel: LinkedIn, industry publications
+  CTA: "See ROI calculator"
+
+For Mike (Team Lead):
+  Headline: "Work faster, stress less"
+  Focus: Ease of use, mobile, collaboration
+  Channel: Twitter, Slack communities
+  CTA: "Try free 30-day trial"
+
+For Lisa (Admin):
+  Headline: "Setup in 1 day, not 1 month"
+  Focus: Easy administration, integrations
+  Channel: Admin webinars
+  CTA: "Download admin guide"
+```
+
+## Best Practices
+
+### ✅ DO
+- Base personas on real research, not assumptions
+- Include 2-3 primary personas
+- Make personas specific and detailed
+- Include direct user quotes
+- Update personas based on new data
+- Share personas across organization
+- Use personas for all product decisions
+- Include both goals and pain points
+- Create personas for different user types
+- Document research sources
+
+### ❌ DON'T
+- Create personas without research
+- Create too many personas (>4 primary)
+- Make personas too generic
+- Ignore data in favor of assumptions
+- Create personas, then forget them
+- Use personas only for design
+- Make personas unrealistically perfect
+- Ignore secondary users
+- Keep personas locked away
+- Never update personas
+
+## User Persona Tips
+
+- Use real quotes from interviews
+- Include both job and personal details
+- Show clear motivations and pain points
+- Make personas memorable and shareable
+- Print and post personas in team space
+- Reference personas in design discussions
