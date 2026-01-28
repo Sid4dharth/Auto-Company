@@ -418,3 +418,143 @@ if env.EAGER_CRAWL:
         prompt=EAGER_CRAWL_PROMPT.format(
             url=full_url,
             slug=slug,
+            depth=env.get("CRAWL_DEPTH", 2),
+            same_domain=env.get("CRAWL_SAME_DOMAIN", True),
+            max_per_page=env.get("CRAWL_MAX_PER_PAGE", 20),
+        ),
+        subagent_type="general-purpose",
+        model="haiku",
+        run_in_background=True
+    )
+```
+
+The crawl agent:
+1. Waits for Pass 1 of extraction (links identified)
+2. Filters and prioritizes links
+3. Spawns fetch+extract tasks for top N links
+4. Recursively crawls to configured depth
+
+See `state/crawl.md` for full crawl agent design.
+
+### Why Fully Async?
+
+1. **Instant feedback**: User sees new prompt immediately
+2. **Non-blocking**: Can queue multiple `cd` commands
+3. **Parallel fetching**: `cd url1 & cd url2 & cd url3` works naturally
+4. **Responsive**: Shell never hangs waiting for slow sites
+
+### Checking Status
+
+```
+ps                    # see if fetch is still running
+jobs                  # list background tasks
+wait                  # block until current fetches complete
+stat                  # shows if extraction is complete
+```
+
+### Graceful Degradation
+
+If user runs `ls` before fetch completes:
+- If `.parsed.md` exists → use it
+- If only `.html` exists → basic extraction on-demand
+- If nothing yet → show "fetching in progress..." with spinner or status
+
+---
+
+## Job Management
+
+websh supports background jobs like a real shell.
+
+### Running in background
+
+Any command can run in background with `&`:
+```
+cd https://slow-site.com &
+watch https://status.com &
+find "API" -depth 3 &
+```
+
+### Job tracking
+
+```
+jobs
+[1]  + running     cd https://slow-site.com &
+[2]  - extracting  news-ycombinator-com
+[3]    watching    watch https://status.com
+```
+
+### Extraction jobs
+
+Every `cd` spawns an extraction job automatically. Track these:
+```
+ps
+PID   STATUS      TARGET
+1     extracting  news-ycombinator-com
+2     complete    x-com-deepfates
+3     watching    status.example.com
+```
+
+### Job control
+
+```
+fg %1        # bring job 1 to foreground
+bg %1        # continue job 1 in background
+kill %1      # cancel job 1
+wait %1      # wait for job 1 to complete
+wait         # wait for all jobs
+```
+
+---
+
+## Environment
+
+websh maintains environment variables that affect requests.
+
+### Default environment
+
+```
+USER_AGENT=websh/1.0
+ACCEPT=text/html,application/xhtml+xml
+TIMEOUT=30
+```
+
+### Setting variables
+
+```
+export HEADER_Authorization="Bearer token123"
+export COOKIE_session="abc123"
+export USER_AGENT="Mozilla/5.0 (compatible; websh)"
+export TIMEOUT=60
+```
+
+### Using environment
+
+All fetch operations use current environment:
+- `USER_AGENT` → User-Agent header
+- `TIMEOUT` → Request timeout
+- `HEADER_*` → Custom headers
+- `COOKIE_*` → Cookies to send
+
+### Profiles
+
+`su <profile>` switches entire environment:
+```
+su work      # load work profile (different cookies, headers)
+su personal  # load personal profile
+su -         # default profile
+```
+
+Profiles stored in `.websh/profiles/`.
+
+---
+
+## Mounting
+
+websh can mount APIs as virtual filesystems.
+
+### Mount an API
+
+```
+mount https://api.github.com /gh
+mount -t github octocat/Hello-World /repo
+mount -t rss https://blog.com/feed.xml /feed
