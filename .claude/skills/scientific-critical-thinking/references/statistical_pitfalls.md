@@ -378,3 +378,129 @@
 **Problem:** Testing many transformations until finding significance.
 
 **Why problematic:** Inflates Type I error, is a form of p-hacking.
+
+**Better approach:**
+- Prespecify transformations
+- Use theory-driven transformations
+- Correct for multiple testing if exploring
+
+## Missing Data Problems
+
+### Pitfall 34: Listwise Deletion by Default
+**Problem:** Automatically deleting all cases with any missing data.
+
+**Consequences:**
+- Reduced power
+- Potential bias if data not missing completely at random (MCAR)
+
+**Better approaches:**
+- Multiple imputation
+- Maximum likelihood methods
+- Analyze missingness patterns
+
+### Pitfall 35: Ignoring Missing Data Mechanisms
+**Problem:** Not considering why data are missing.
+
+**Types:**
+- MCAR (Missing Completely at Random): Safe to delete
+- MAR (Missing at Random): Can impute
+- MNAR (Missing Not at Random): May bias results
+
+**Solution:** Analyze patterns, use appropriate methods, consider sensitivity analyses.
+
+## Publication and Reporting Issues
+
+### Pitfall 36: Selective Reporting
+**Problem:** Only reporting significant results or favorable analyses.
+
+**Consequences:**
+- Literature appears more consistent than reality
+- Meta-analyses biased
+- Wasted research effort
+
+**Solutions:**
+- Preregistration
+- Report all analyses
+- Use reporting guidelines (CONSORT, PRISMA, etc.)
+
+### Pitfall 37: Rounding to p < .05
+**Problem:** Reporting exact p-values selectively (e.g., p = .049 but p < .05 for .051).
+
+**Why problematic:** Obscures values near threshold, enables p-hacking detection evasion.
+
+**Better:** Always report exact p-values.
+
+### Pitfall 38: No Data Sharing
+**Problem:** Not making data available for verification or reanalysis.
+
+**Consequences:**
+- Can't verify results
+- Can't include in meta-analyses
+- Hinders scientific progress
+
+**Best practice:** Share data unless privacy concerns prohibit.
+
+## Cross-Validation and Generalization
+
+### Pitfall 39: No Cross-Validation
+**Problem:** Testing model on same data used to build it.
+
+**Consequence:** Overly optimistic performance estimates.
+
+**Solutions:**
+- Split data (train/test)
+- K-fold cross-validation
+- Independent validation sample
+
+### Pitfall 40: Data Leakage
+**Problem:** Information from test set leaking into training.
+
+**Examples:**
+- Normalizing before splitting
+- Feature selection on full dataset
+- Including temporal information
+
+**Consequence:** Inflated performance metrics.
+
+**Prevention:** All preprocessing decisions made using only training data.
+
+## Meta-Analysis Pitfalls
+
+### Pitfall 41: Apples and Oranges
+**Problem:** Combining studies with different designs, populations, or measures.
+
+**Balance:** Need homogeneity but also comprehensiveness.
+
+**Solutions:**
+- Clear inclusion criteria
+- Subgroup analyses
+- Meta-regression for moderators
+
+### Pitfall 42: Ignoring Publication Bias
+**Problem:** Published studies overrepresent significant results.
+
+**Consequences:** Overestimated effects in meta-analyses.
+
+**Detection:**
+- Funnel plots
+- Trim-and-fill
+- PET-PEESE
+- P-curve analysis
+
+**Solutions:**
+- Include unpublished studies
+- Register reviews
+- Use bias-correction methods
+
+## General Best Practices
+
+1. **Preregister studies** - Distinguish confirmatory from exploratory
+2. **Report transparently** - All analyses, not just significant ones
+3. **Check assumptions** - Don't blindly apply tests
+4. **Use appropriate tests** - Match test to data and design
+5. **Report effect sizes** - Not just p-values
+6. **Consider practical significance** - Not just statistical
+7. **Replicate findings** - One study is rarely definitive
+8. **Share data and code** - Enable verification
+9. **Use confidence intervals** - Show uncertainty
+10. **Think causally carefully** - Most research is correlational
