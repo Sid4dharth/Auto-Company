@@ -438,3 +438,149 @@ function blockDeprecated(sunsetDate: Date) {
 ---
 
 ## Webhook Security
+
+### Signature Verification
+
+```typescript
+import crypto from 'crypto';
+
+// Verify incoming webhook
+function verifyWebhookSignature(secret: string) {
+  return (req: Request, res: Response, next: NextFunction) => {
+    const signature = req.headers['x-webhook-signature'] as string;
+    const timestamp = req.headers['x-webhook-timestamp'] as string;
+    
+    if (!signature || !timestamp) {
+      return res.status(401).json({ error: 'Missing signature' });
+    }
+    
+    // Check timestamp (prevent replay attacks)
+    const age = Date.now() - parseInt(timestamp);
+    if (age > 5 * 60 * 1000) { // 5 minutes
+      return res.status(401).json({ error: 'Request too old' });
+    }
+    
+    // Verify signature
+    const payload = `${timestamp}.${JSON.stringify(req.body)}`;
+    const expectedSignature = crypto
+      .createHmac('sha256', secret)
+      .update(payload)
+      .digest('hex');
+    
+    if (!crypto.timingSafeEqual(
+      Buffer.from(signature),
+      Buffer.from(expectedSignature)
+    )) {
+      return res.status(401).json({ error: 'Invalid signature' });
+    }
+    
+    next();
+  };
+}
+
+// Sign outgoing webhook
+async function sendWebhook(url: string, payload: unknown, secret: string) {
+  const timestamp = Date.now().toString();
+  const body = JSON.stringify(payload);
+  
+  const signature = crypto
+    .createHmac('sha256', secret)
+    .update(`${timestamp}.${body}`)
+    .digest('hex');
+  
+  await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Webhook-Signature': signature,
+      'X-Webhook-Timestamp': timestamp
+    },
+    body
+  });
+}
+```
+
+---
+
+## GraphQL Security
+
+### Query Complexity Limiting
+
+```typescript
+import { createComplexityLimitRule } from 'graphql-validation-complexity';
+
+const complexityLimit = createComplexityLimitRule(1000, {
+  onCost: (cost) => console.log('Query cost:', cost),
+  formatErrorMessage: (cost) => 
+    `Query too complex: ${cost}. Maximum allowed: 1000`
+});
+
+const server = new ApolloServer({
+  schema,
+  validationRules: [complexityLimit]
+});
+```
+
+### Depth Limiting
+
+```typescript
+import depthLimit from 'graphql-depth-limit';
+
+const server = new ApolloServer({
+  schema,
+  validationRules: [depthLimit(5)]
+});
+```
+
+### Introspection Control
+
+```typescript
+const server = new ApolloServer({
+  schema,
+  introspection: process.env.NODE_ENV !== 'production'
+});
+```
+
+---
+
+## API Security Checklist
+
+### Authentication
+- [ ] All endpoints require authentication (except public)
+- [ ] Tokens have reasonable expiration
+- [ ] Token refresh mechanism works
+- [ ] Logout invalidates tokens
+
+### Authorization
+- [ ] Every endpoint has explicit authorization
+- [ ] Resource ownership is verified
+- [ ] No IDOR vulnerabilities
+- [ ] Admin functions protected
+
+### Input Validation
+- [ ] All input validated against schema
+- [ ] Request size limits configured
+- [ ] File uploads validated
+- [ ] No SQL/NoSQL injection
+
+### Rate Limiting
+- [ ] Global rate limit
+- [ ] Auth endpoint rate limit
+- [ ] Per-user rate limiting
+- [ ] Expensive operation limits
+
+### Headers & CORS
+- [ ] CORS properly configured
+- [ ] Security headers set
+- [ ] No sensitive data in headers
+
+### Error Handling
+- [ ] No stack traces in responses
+- [ ] No internal details leaked
+- [ ] Consistent error format
+- [ ] Request IDs for debugging
+
+### Logging
+- [ ] Security events logged
+- [ ] No sensitive data in logs
+- [ ] Request IDs correlate
