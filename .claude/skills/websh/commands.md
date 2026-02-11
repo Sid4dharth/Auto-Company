@@ -946,3 +946,161 @@ whoami -v            # verbose (show how detected)
 Or:
 ```
 (not logged in)
+```
+
+---
+
+### `login`
+
+Interactive login flow.
+
+**Syntax:**
+```
+login                        # login to current site
+login <url>                  # login to specific site
+login --form <selector>      # specify login form
+login -u <user> -p <pass>    # provide credentials
+login --cookie <file>        # import cookies from file
+login --browser              # import from browser
+```
+
+**Flow:**
+1. Detect login form
+2. Prompt for credentials (or use provided)
+3. Submit form
+4. Store session cookies
+
+---
+
+### `logout`
+
+Clear session for current site.
+
+**Syntax:**
+```
+logout               # current site
+logout <domain>      # specific domain
+logout --all         # all sessions
+```
+
+---
+
+### `su`
+
+Switch user/profile.
+
+**Syntax:**
+```
+su <profile>         # switch to profile
+su -                 # switch to default
+su -l <profile>      # login as profile (fresh session)
+```
+
+Profiles store separate cookies, headers, identities.
+
+---
+
+## Mounting & Virtual Filesystems
+
+### `mount`
+
+Mount an API or service as a browsable directory.
+
+**Syntax:**
+```
+mount <source> <mountpoint>
+mount -t <type> <source> <mountpoint>
+```
+
+**Types:**
+- `rest` — REST API
+- `github` — GitHub API
+- `rss` — RSS/Atom feed
+- `json` — JSON endpoint
+
+**Examples:**
+```
+mount https://api.github.com /gh
+mount -t github octocat/Hello-World /repo
+mount -t rss https://example.com/feed.xml /feed
+mount -t rest https://api.example.com /api
+```
+
+**After mounting:**
+```
+cd /gh/users/octocat
+ls                           # list user properties
+cat repos                    # fetch repos
+cd /gh/repos/octocat/Hello-World
+ls issues
+cat issues/1
+```
+
+---
+
+### `umount`
+
+Unmount a mounted path.
+
+**Syntax:**
+```
+umount <mountpoint>
+umount -a            # unmount all
+```
+
+---
+
+### `df`
+
+Show mounted filesystems and cache usage.
+
+**Syntax:**
+```
+df
+df -h                # human readable sizes
+```
+
+**Output:**
+```
+Mount           Type    Size    Used    Quota
+/               web     -       12MB    -
+/gh             github  -       45KB    5000 req/hr (4892 left)
+/api            rest    -       2KB     100 req/min (98 left)
+
+Cache: 156 pages, 45MB
+```
+
+---
+
+### `quota`
+
+Show rate limit status.
+
+**Syntax:**
+```
+quota
+quota <domain>
+```
+
+**Output:**
+```
+api.github.com: 4892/5000 requests remaining (resets in 45min)
+api.twitter.com: 98/100 requests remaining (resets in 12min)
+```
+
+---
+
+## Archives & Snapshots
+
+### `tar`
+
+Archive multiple pages.
+
+**Syntax:**
+```
+tar -c <file> <urls...>      # create archive
+tar -c site.tar https://example.com/*   # glob
+tar -x <file>                # extract (restore to cache)
+tar -t <file>                # list contents
+tar -z                       # compress (gzip)
+```
