@@ -145,6 +145,11 @@ memories/consensus.md.bak
 # Projects directory (show folder on GitHub, hide contents)
 projects/*
 !projects/.gitkeep
+
+# Local/private outputs (do not publish)
+rewrite_report.md
+docs/qa/cycle-*.md
+projects/**/scripts/pilot-smoke.sh
 .vscode-test-web
 **/.vitepress/cache
 **/.vitepress/.temp

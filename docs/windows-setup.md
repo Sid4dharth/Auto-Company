@@ -50,7 +50,7 @@ bash -ic 'command -v codex; codex --version'
 建议一次性启用 linger（提高 user service 持续性）：
 
 ```powershell
-wsl -d Ubuntu -u root loginctl enable-linger max
+wsl -d Ubuntu -u root loginctl enable-linger <your-user>
 ```
 
 ## 3. 前置事项（每次开始前）
@@ -172,7 +172,7 @@ git config core.eol lf
 - 原因：WSL 会话被回收（常见于 linger 未开启或缺少 keepalive）
 - 处理：
   - 确认 `wsl-anchor` 为 RUNNING：`.\scripts\windows\status-win.ps1`
-  - 一次性启用 linger：`wsl -d Ubuntu -u root loginctl enable-linger max`
+  - 一次性启用 linger：`wsl -d Ubuntu -u root loginctl enable-linger <your-user>`
   - 重启服务：`.\scripts\windows\stop-win.ps1` 然后 `.\scripts\windows\start-win.ps1`
 
 ### 自启脚本提示 `Access is denied`
